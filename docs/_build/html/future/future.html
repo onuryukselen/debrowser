@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -30,8 +32,11 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="DEBrowser 1.1.10 documentation" href="../index.html"/>
-        <link rel="prev" title="DESeq/DEBrowser" href="../deseq/deseq.html"/> 
+        <link rel="prev" title="DE Analysis" href="../deseq/deseq.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -40,6 +45,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -80,10 +86,13 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/quickstart.html">Quick-start Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Install Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deseq/deseq.html">DESeq/DEBrowser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deseq/deseq.html">DE Analysis</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DEBrowser Additions</a></li>
 </ul>
 
@@ -97,8 +106,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">DEBrowser</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DEBrowser</a>
+        
       </nav>
 
 
@@ -107,23 +118,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>DEBrowser Additions</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>DEBrowser Additions</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/future/future.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/future/future.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -136,7 +164,6 @@
 <div><ul class="simple">
 <li>Venn Diagrams to compare overlapping differentially expressed genes in different condition comparison results.</li>
 <li>Increase in the number of used clustering methods.</li>
-<li>Batch effect correction method(s).</li>
 <li>GO term analysis gene lists will be added for found GO categories.</li>
 </ul>
 </div></blockquote>
@@ -145,13 +172,16 @@
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../deseq/deseq.html" class="btn btn-neutral" title="DESeq/DEBrowser" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../deseq/deseq.html" class="btn btn-neutral" title="DE Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -185,7 +215,8 @@
             VERSION:'1.1.10',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
