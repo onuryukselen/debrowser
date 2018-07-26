@@ -94,21 +94,22 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick-start Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#low-count-filtering">Low Count Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#batch-effect-correction">Batch Effect Correction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#metadata-upload">Metadata Upload</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-main-plots">The Main Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quality-control-plots">Quality Control Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#heat-maps">Heat Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batch-effect-correction-and-normalization">Batch Effect Correction and Normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#de-analysis">DE Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-main-plots-of-de-analysis">The Main Plots of DE Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-heatmap-of-de-analysis">The Heatmap of DE Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#go-term-plots">GO Term Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-tables">Data Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#saving-the-state">Saving the State</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#google-login">Google Login</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Autoload Data via Hyperlink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-control-plots">Quality Control Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Autoload Data via Hyperlink</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Install Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deseq/deseq.html">DE Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../heatmap/heatmap.html">Heatmaps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/modules.html">DEBrowser Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../future/future.html">DEBrowser Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 </ul>
 
             
@@ -192,8 +193,8 @@
 </div>
 <p>Once you’ve made your way to the website, or you have a local instance of DEBrowser running, you will be greeted with data loading section:</p>
 <img alt="../_images/data_load.png" class="align-center" src="../_images/data_load.png" />
-<p>To begin the analysis, you need to upload your <em>count data file</em> (comma or semicolon separated (CSV), or tab separated (TSV) format) to be analyzed under the “Upload your Count Data File” section and choose appropiate separator for the file (comma, semicolon or tab).</p>
-<p>If you do not have a dataset to upload, you can use the built in demo data file by clicking on the ‘Load Demo!’ button.  To view the entire demo data file, you can download
+<p>To begin the analysis, you need to upload your <em>count data file</em> (comma or semicolon separated (CSV), and tab separated (TSV) format) to be analyzed and choose appropiate separator for the file (comma, semicolon or tab).</p>
+<p>If you do not have a dataset to upload, you can use the built in demo data file by clicking on the ‘Load Demo (Vernia et al.)!’ button.  To view the entire demo data file, you can download
 this <a class="reference external" href="https://bioinfo.umassmed.edu/pub/debrowser/simple_demo.tsv">demo set</a>.  For an example case study, try our <a class="reference external" href="https://bioinfo.umassmed.edu/pub/debrowser/advanced_demo.tsv">advanced demo</a>.</p>
 <p>The structure of the count data files are shown below:</p>
 <table border="1" class="docutils">
@@ -240,87 +241,26 @@ this <a class="reference external" href="https://bioinfo.umassmed.edu/pub/debrow
 </table>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">DEBrowser also accepts count data files via hyperlink, for more information please see the <a class="reference external" href="quickstart.html#autoload-data-via-hyperlink">Autoload data via hyperlink</a> section.</p>
+<p class="last">DEBrowser also accepts count data files via hyperlink, for more information please see the <a class="reference external" href="quickstart.html#autoload-data-via-hyperlink">autoload data via hyperlink</a> section.</p>
 </div>
-<p>In addition to the count data file; you may also upload metadata file to correct for batch effects or any other normalizing conditions you might want to address that might be within your results. To handle for these conditions, simply create a metadata file by using the example table at below or download sample file from <a class="reference external" href="https://raw.githubusercontent.com/onuryukselen/debrowser/develop/docs/quickstart/metadata.tsv">this link</a>.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="32%" />
-<col width="32%" />
-<col width="36%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">sample</th>
-<th class="head">batch</th>
-<th class="head">condition</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>s1_b1_cA</td>
-<td>1</td>
-<td>A</td>
-</tr>
-<tr class="row-odd"><td>s2_b1_cA</td>
-<td>1</td>
-<td>A</td>
-</tr>
-<tr class="row-even"><td>s3_b2_cB</td>
-<td>2</td>
-<td>B</td>
-</tr>
-<tr class="row-odd"><td>s4_b2_cB</td>
-<td>2</td>
-<td>B</td>
-</tr>
-<tr class="row-even"><td>s5_b1_cB</td>
-<td>1</td>
-<td>B</td>
-</tr>
-</tbody>
-</table>
-<p>Metadata file can be formatted with comma, semicolon or tab separators similar to count data files. These files used to establish different batch effects for multiple conditions.
-You can have as many conditions as you may require, as long as all of the samples are present.</p>
-<p>To load the metadata, you need to upload your file under <strong>Upload your ‘Metadata File’</strong> section and select the column separator.</p>
-<p>Once the count data and metadata files has been loaded in Debrowser, you can click upload button to visualize the your data as shown at below:</p>
+<p>In addition to the count data file; you need to upload metadata file to correct for batch effects or any other normalizing conditions you might want to address that might be within your results. To handle for these conditions, simply create a metadata file by using the example table at below or download sample file from <a class="reference external" href="https://raw.githubusercontent.com/onuryukselen/debrowser/develop/docs/quickstart/metadata.tsv">this link</a>.</p>
+<p>Once the count data and metadata files have been loaded in Debrowser, you can click upload button to visualize your data as shown at below:</p>
 <img alt="../_images/upload_summary.png" class="align-center" src="../_images/upload_summary.png" />
 <p>After loading the gene quantification file, and if specified the metadata file containing your batch correction fields, you then have the option to filter low counts and conduct batch effect correction prior to your analysis. Alternatively you may skip these steps and directly continue with differential expression analysis or view quality control (QC) information of your dataset.</p>
 </div>
 <div class="section" id="low-count-filtering">
 <h2>Low Count Filtering<a class="headerlink" href="#low-count-filtering" title="Permalink to this headline">¶</a></h2>
-<p>In this section, you can simultaneously visualise the changes of your dataset while filtering out the low count genes. Choose your filtration criteria from <strong>Filtering Methods</strong> box which is located just center of the screen. Three methods are available to be used:</p>
-<blockquote>
-<div><ul class="simple">
-<li><strong>Max:</strong> Filters out genes where maximum count for each gene across all samples are less than defined threshold.</li>
-<li><strong>Mean:</strong> Filters out genes where mean count for each gene are less than defined threshold.</li>
-<li><strong>CPM:</strong>      First, counts per million (CPM) is calculated as the raw counts divided by the library sizes and multiplied by one million. Then it filters out genes where at least defined number of samples is less than defined CPM threshold.</li>
-</ul>
-</div></blockquote>
-<p>After selection of filtering methods and entering threshold value, you can proceed by clicking <strong>Filter</strong> button which is located just bottom part of the <strong>Filtering Methods</strong> box. On the right part of the screen, your filtered dataset will be visualized for comparison as shown at figure below.</p>
-<a class="reference internal image-reference" href="../_images/filtering.png"><img alt="../_images/filtering.png" class="align-center" src="../_images/filtering.png" style="width: 99%;" /></a>
-<p>You can easily compare following features, before and after filtering:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Number of genes/regions.</li>
-<li>Read counts for each sample.</li>
-<li>Overall histogram of the dataset.</li>
-<li>gene/region vs samples data</li>
-</ul>
-</div></blockquote>
-<div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">To investigate the gene/region vs samples data in detail as shown at below, you may click the <strong>Show Data</strong> button, located bottom part of the data tables. Alternatively, you may download all filtered data by clicking <strong>Download</strong> button which located next to <strong>Show Data</strong> button.</p>
-</div>
 <a class="reference internal image-reference" href="../_images/show_data.png"><img alt="../_images/show_data.png" class="align-center" src="../_images/show_data.png" style="width: 70%;" /></a>
 <p>Afterwards, you may continue your analysis with <strong>Batch Effect Correction</strong> or directly jump to differential expression analysis or view quality control (QC) information of your dataset.</p>
 </div>
-<div class="section" id="batch-effect-correction">
-<h2>Batch Effect Correction<a class="headerlink" href="#batch-effect-correction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="batch-effect-correction-and-normalization">
+<h2>Batch Effect Correction and Normalization<a class="headerlink" href="#batch-effect-correction-and-normalization" title="Permalink to this headline">¶</a></h2>
 <p>If specified metadata file containing your batch correction fields, then you have the option to conduct batch effect correction prior to your analysis. By adjusting parameters of <strong>Options</strong> box, you can investigate your character of your dataset. These parameters of the options box are explained as following:</p>
 <blockquote>
 <div><ul class="simple">
-<li><strong>Normalization Method:</strong> DEBrowser allows performing normalization prior the batch effect correction. You may choose your normalization method (among DESeq2, TMM, RLE, upperquartile), or if you don’t want to normalize your data you can select <strong>none</strong> for this item.</li>
-<li><strong>Correction Method:</strong> DEBrowser uses <a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf">ComBat</a> (part of the SVA bioconductor package) or <a class="reference external" href="https://www.bioconductor.org/packages/3.7/bioc/vignettes/Harman/inst/doc/IntroductionToHarman.html">Harman</a> to adjust for possible batch effect or conditional biases. For more information, you can visit following links for documentation: <a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf">ComBat</a>, <a class="reference external" href="https://www.bioconductor.org/packages/3.7/bioc/vignettes/Harman/inst/doc/IntroductionToHarman.html">Harman</a></li>
-<li><strong>Treatment:</strong> Please select the column that is specified in metadata file for comparision, such as cancer vs control. It is named <em>condition</em> for our sample metadata.</li>
+<li><strong>Normalization Method:</strong> DEBrowser allows performing normalization prior the batch effect correction. You may choose your normalization method (among MRN (Median Ratio Normalization), TMM (Trimmed Mean of M-values), RLE (Relative Log Expression) and upperquartile), or skip this step by choosing <strong>none</strong> for this item. For our sample data, we gonna choose MRN normalization.</li>
+<li><strong>Correction Method:</strong> DEBrowser uses <a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf">ComBat</a> (part of the SVA bioconductor package) or <a class="reference external" href="https://www.bioconductor.org/packages/3.7/bioc/vignettes/Harman/inst/doc/IntroductionToHarman.html">Harman</a> to adjust for possible batch effect or conditional biases. For more information, you can visit following links for documentation: <a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf">ComBat</a>, <a class="reference external" href="https://www.bioconductor.org/packages/3.7/bioc/vignettes/Harman/inst/doc/IntroductionToHarman.html">Harman</a> For our sample data, Combat correction was selected.</li>
+<li><strong>Treatment:</strong> Please select the column that is specified in metadata file for comparision, such as cancer vs control. It is named <em>treatment</em> for our sample metadata.</li>
 <li><strong>Batch:</strong> Please select the column name in metadata file which differentiate the batches. For example in our metadata, it is called <em>batch</em>.</li>
 </ul>
 </div></blockquote>
@@ -340,267 +280,66 @@ You can have as many conditions as you may require, as long as all of the sample
 <p class="first admonition-title">Tip</p>
 <p class="last">You can investigate the gene/region vs samples data in detail by clicking the <strong>Show Data</strong> button, or download all corrected data by clicking <strong>Download</strong> button.</p>
 </div>
-<p>Upon meta-data loading, you will then be able to select from a drop down box that will specify which
-column you want to use for analysis.</p>
-<p>For more information about the input file or the potential Differential Expression Analysis programs, please visit our DE analysis tab within DEBrowser documentation.  Once you’ve selected your file and the upload has completed, you will then be shown the samples listed within your file uploaded as well as a few options.</p>
-<img alt="../_images/file_load.png" class="align-center" src="../_images/file_load.png" />
-<p>The first option, ‘Go to DE Analysis’, takes you to the next step within the DESeq workflow.
-In order to run DESeq on your input data you first need to select which samples will go into your
-conditions.  You can run multiple condition comparisons and view the results seperately as well.
-To remove samples from a condition, simply select the sample you wish to remove and hit the delete/backspace key.
-To add a sample to a condition you simply have to click on one of the condition text boxes to bring up a list of
-samples you can add to that comparison.  Click on the sample you wish to add from the list and it will be added
-to the textbox for that comparison.</p>
-<img alt="../_images/de_analysis.png" class="align-center" src="../_images/de_analysis.png" />
-<p>The second option, ‘Go to QC plots!’, takes you to a page where you can view quality control metrics on your data input.
-The page opens with a Principal Component Analysis (PCA) plot.  You are able to adjust the size of the plots on the menu
-to the left under ‘width’ and ‘height’ as well as alter a variety of other variables to adjust the specific plot you’re viewing.
-You can change the type of dataset being viewed within these QC plots by selecting the dataset you want at the top of the left panel.
-If you submitted a batch meta data file along with your input file, you can also filter the PCA plot based on the specific batch groupings
-that you submitted.</p>
-<p>In addition to the PCA plot,  you can also select a variety of other plots to view your initial data.
-The All2All plot displays the correlation between each sample, Heatmap shows a heatmap representation of your data,
-IQR displays a barplot displaying the IQR between samples, and Density will display an overlapping density graph for each sample.
-You also have the ability to select the type of clustering and distance method for the heatmap produced to further customize your quality control measures.
-Users also have the option to select which type of normalization methods they would like to use for these specific plotting analysis within the
-left menu.</p>
-<img alt="../_images/intro_sidebar.png" class="align-center" src="../_images/intro_sidebar.png" />
-<img alt="../_images/intro_qc_all2all.png" class="align-center" src="../_images/intro_qc_all2all.png" />
-<img alt="../_images/intro_qc_heatmap.png" class="align-center" src="../_images/intro_qc_heatmap.png" />
-<img alt="../_images/intro_qc_pca.png" class="align-center" src="../_images/intro_qc_pca.png" />
-<img alt="../_images/iqr_plot.png" class="align-center" src="../_images/iqr_plot.png" />
-<img alt="../_images/density_plot.png" class="align-center" src="../_images/density_plot.png" />
-<p>You can also view specific tables of your input data for each type of dataset available and search for a specific geneset
-by inputting a comma-seperated list of genes or regex terms to search for in the search box within the left panel.
-To view these tables, you must select the tab labeled ‘Tables’ as well as the dataset from the dropdown menu on the left panel.</p>
-<p>If you ever want to change your file/condition parameters, or even ad a new set of comparisons, you can always
-return to the ‘Data Prep’ to change and resubmit your data.  To completely start over, you can also hit the ‘Reset’
-button on the ‘Data Prep’ page.</p>
-<p>Once you are happy with your dataset and you have selected your conditions within the ‘DE Analysis’ section,
-you can then hit ‘Submit!’ to begin.</p>
+<p>Since we have completed <strong>batch effect correction and normalization</strong> step, we can continue with one of the following options: ‘Go to DE Analysis’ and ,’Go to QC plots!’. First option takes you to page where differential expression analyses are conducted with DESeq2, EdgeR or Limma. The second option, ‘Go to QC plots!’, takes you to a page where you can view quality control metrics of your data by PCA, All2All, Heatmap, Density, and IQR plots.</p>
 </div>
-<div class="section" id="metadata-upload">
-<h2>Metadata Upload<a class="headerlink" href="#metadata-upload" title="Permalink to this headline">¶</a></h2>
-<p>If you prefer to select conditions beforehand, and save them as a TSV file to upload, you have this option
-as of February 2017. You can split up conditions into two groups in a TSV file, and have as many selections as
-you want for different groupings.</p>
-<p>To load in the specific file that contains the meta data, at the start of the DEBrowser there will be a
-“Choose Meta Data File (Optional)” which you can then select the meta data file to use for this analysis.
-In the metadata file, you will need to have a sample column as the first column and from then on exactly 2
-groups in each column([cond1, cond2], [1, 2], etc) to be matched to the sample column. Sample TSV:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="40%" />
-<col width="29%" />
-<col width="31%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">sample</th>
-<th class="head">select1</th>
-<th class="head">selection2</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>exper_rep1</td>
-<td>cond1</td>
-<td>1</td>
-</tr>
-<tr class="row-odd"><td>exper_rep2</td>
-<td>cond1</td>
-<td>2</td>
-</tr>
-<tr class="row-even"><td>exper_rep3</td>
-<td>cond2</td>
-<td>1</td>
-</tr>
-<tr class="row-odd"><td>control_rep1</td>
-<td>cond2</td>
-<td>2</td>
-</tr>
-<tr class="row-even"><td>control_rep2</td>
-<td>cond2</td>
-<td>1</td>
-</tr>
-<tr class="row-odd"><td>control_rep3</td>
-<td>cond2</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-<p>The example above would result in ‘select1’ having the first set of conditions as {exper_rep1, exper_rep2}
-from ‘cond1’ and second set of conditions as {exper_rep3, control_rep1, control_rep2, control_rep3} from
-‘cond2’ as they correspond to those conditions in the ‘sample’ column.</p>
-<p>In the same way, ‘selection2’ would have the first set as {exper_rep1, exper_rep3, control_rep2} from ‘1’
-and second set as {exper_rep2, control_rep1, control_rep3} from ‘2’  as they correspond to those conditions
-in the ‘sample’ column.</p>
+<div class="section" id="de-analysis">
+<h2>DE Analysis<a class="headerlink" href="#de-analysis" title="Permalink to this headline">¶</a></h2>
+<p>The first option, ‘Go to DE Analysis’, takes you to the next step where differential expression analyses are conducted.</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Sample Selection:</strong> In order to run DE analysis, you first need to select the samples which will be compared. To do so, click on “Add New Comparison” button, and choose <strong>Select Meta</strong> box as <strong>treatment</strong> to simplify fill <code class="docutils literal notranslate"><span class="pre">Condition</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">Condition</span> <span class="pre">2</span></code> based on the <strong>treatment</strong> column of the metadata as shown below.</p>
+<blockquote>
+<div><img alt="../_images/de_selection.png" class="align-center" src="../_images/de_selection.png" />
+</div></blockquote>
+</li>
+</ul>
+<p>If you need to remove samples from a condition, simply select the sample you wish to remove and hit the delete/backspace key. In case, you need to add a sample to a condition you can click on one of the condition text boxes to bring up a list of samples and then click on the sample you wish to add from the list and it will be added to the textbox for that comparison.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">You can add multiple conditions to compare by clicking on “Add New Comparison” button, and view the results seperately after DE analysis.</p>
 </div>
-<div class="section" id="the-main-plots">
-<h2>The Main Plots<a class="headerlink" href="#the-main-plots" title="Permalink to this headline">¶</a></h2>
-<p>After clicking on the ‘Submit!’ button, DESeq2 will analyze your comparisons
-and store the results into seperate data tables.  Shiny will then allow you
-to access this data, with multiple interactive features, at the click of a
-button.  It is important to note that the resulting data produced from DESeq
-is normalized. Upon finishing the DESeq analysis, a tab based menu will appear
-with multiple options.</p>
+<ul class="simple">
+<li><strong>Method Selection:</strong> Three DE methods are available for DEBrowser: DESeq2, EdgeR, and Limma. DESeq2 and EdgeR are designed to normalize count data from high-throughput sequencing assays such as RNA-Seq. On the other hand, Limma is a package to analyse of normalized or transformed data from microarray or RNA-Seq assays. We have selected DESeq2 for our test sample and showed the related results at below.</li>
+</ul>
+</div></blockquote>
+<p>After clicking on the ‘Submit!’ button, DESeq2 will analyze your comparisons and store the results into seperate data tables. It is important to note that the resulting data produced from DESeq is normalized. Upon finishing the DESeq analysis, a result table will appear which allows you to download the data by clicking “Download” button. To visualize the data with interactive plots please click on “Go to Main Plots!” button.</p>
+</div>
+<div class="section" id="the-main-plots-of-de-analysis">
+<h2>The Main Plots of DE Analysis<a class="headerlink" href="#the-main-plots-of-de-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Upon finishing the DESeq analysis, please click on <strong>Go to Main Plots!</strong> button which will open <strong>Main Plots</strong> tab where you will be able to view
+the interactive plots.</p>
 <img alt="../_images/info_tabs.png" class="align-center" src="../_images/info_tabs.png" />
-<p>The first tab, the ‘Main Plots’ section, is where you will be able to view
-the interactive results plots.  Plot choices include:</p>
-<p>Scatter plot</p>
-<img alt="../_images/scatter_plot.png" class="align-center" src="../_images/scatter_plot.png" />
-<p>Volcano plot</p>
-<img alt="../_images/volcano.png" class="align-center" src="../_images/volcano.png" />
-<p>MA plot</p>
-<img alt="../_images/ma.png" class="align-center" src="../_images/ma.png" />
-<p>You can hover over the scatterplot points to display more information about the point selected.
-A few bargraphs will be generated for the user to view as soon as a scatterplot point is hovered over.</p>
-<img alt="../_images/bargraph.png" class="align-center" src="../_images/bargraph.png" />
-<img alt="../_images/barplot.png" class="align-center" src="../_images/barplot.png" />
-<p>You can also select a specific region within the scatter plot and zoom in on the selected window.</p>
-<img alt="../_images/scatter_plot_selection.png" class="align-center" src="../_images/scatter_plot_selection.png" />
-<p>Once you’ve selected a specific region, a new scatterplot of the selected area will appear on the right</p>
-<img alt="../_images/scatter_plot_zoom.png" class="align-center" src="../_images/scatter_plot_zoom.png" />
-<p>You also have a wide array of options when it comes to fold change cut-off levels, padj cut-off values,
-which comparison set to use, and dataset of genes to analyze.</p>
-<img alt="../_images/filters.png" class="align-center" src="../_images/filters.png" />
-<p>It is important to note that when conducting multiple comparisons, the
-comparisons are labeled based on the order that they are input.
-If you don’t remember which samples are in your current comparison
-you can always view the samples in each condition at the top of the main plots.</p>
-<img alt="../_images/selected_conditions.png" class="align-center" src="../_images/selected_conditions.png" />
-<p>If you can select the type of plot at the bottom of the filter tab.</p>
-<img alt="../_images/main_plots.png" class="align-center" src="../_images/main_plots.png" />
-<p>You can download the results in CSV or TSV format by selecting your ‘File type’ and clicking the ‘download’ button once you’ve ran DESeq.
-You can also download the plot or graphs themselves by clicking on the gear in the upper-left corner of each plot or graph.</p>
+<p>The page will loads with <strong>Scatter Plot</strong>. You can switch to <strong>Volcano Plot</strong> and <strong>MA Plot</strong> by using <strong>Plot Type</strong> section at the left side of the menu. Since these plots are interactive, you can click to <strong>zoom</strong> button on the top of the graph and select the area you would like to zoom in by drawing a rectangle. Please see the plots at below:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/example_main_plots1.png"><img alt="../_images/example_main_plots1.png" class="align-center" src="../_images/example_main_plots1.png" style="width: 99%;" /></a>
+</div></blockquote>
+<p><strong>A.</strong> Scatter plot, <strong>B.</strong> Volcano plot, <strong>C.</strong> MA plot</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Please keep in mind that to increace the performance of the generating graph, by default 10% of non-significant(NS) genes are used to generate plots. You might show all NS genes by please click <strong>Main Options</strong> button and change Background Data(%) to 100% on the left sidebar.</p>
+<a class="last reference internal image-reference" href="../_images/example_background_data1.png"><img alt="../_images/example_background_data1.png" class="align-center" src="../_images/example_background_data1.png" style="width: 30%;" /></a>
 </div>
-<div class="section" id="quality-control-plots">
-<h2>Quality Control Plots<a class="headerlink" href="#quality-control-plots" title="Permalink to this headline">¶</a></h2>
-<p>Selecting the ‘QC Plots’ tab will take you to the quality control plots
-section.  These QC plots are very similar to the QC plots shown before
-running DESeq and the dataset being used here depends on the one
-you select in the left panel.  In addition to the all-to-all plot shown
-within the previous QC analysis, users can also view a heatmap,PCA, IQR, and density
-plots of their analyzed data by selecting the proper plot on the left
-menu.  You can also choose the appropriate clustering and distance method you would
-like to use for this heatmap just abot the plot just like in the previous QC section.</p>
-<p>For additional information about the clustering methods used, you can consult <a class="reference external" href="https://www.inside-r.org/r-doc/stats/hclust">this website</a>.</p>
-<p>For additional information about the distance methods used, you can consult <a class="reference external" href="https://www.inside-r.org/r-doc/stats/dist">here</a>.</p>
-<p>For distances other than ‘cor’, the distance function defined will be ( 1 - (the correlation between samples)).
-Each qc plot also has options to adjust the plot height and width, as well as a download button for a pdf output located above each plot.
-For the Heatmap, you can also view an interactive session of the heatmap by selecting the ‘Interactive’ checkbox before submitting your
-heatmap request.  Make sure that before selecting the interactive heatmap option that your dataset being used is ‘Up+down’.
-Just like in the Main Plots, you can click and drag to create a selection.  To select a specific portion of the heatmap, make sure
-to highlight the middle of the heatmap gene box in order to fully select a specific gene.  This selection can be used later within the
-GO Term plots for specific queries on your selection.</p>
-<img alt="../_images/interactive_heatmap.png" class="align-center" src="../_images/interactive_heatmap.png" />
-<p>Your selection will also zoom in for better viewing resolution.</p>
-<img alt="../_images/interactive_heatmap_zoom.png" class="align-center" src="../_images/interactive_heatmap_zoom.png" />
+<p>You can hover over the scatterplot points to display more information about the point selected. A few bargraphs will be generated for the user to view as soon as a scatterplot point is hovered over.</p>
+<a class="reference internal image-reference" href="../_images/main_plot_hover.png"><img alt="../_images/main_plot_hover.png" class="align-center" src="../_images/main_plot_hover.png" style="width: 99%;" /></a>
+<p><strong>A.</strong> Hover on Fabp3 gene, <strong>B.</strong> Read Counts vs Samples, <strong>C.</strong> Read Counts vs Conditions</p>
+<p>You also have a wide array of options when it comes to fold change cut-off levels, padj cut-off values, which comparison set to use, and dataset of genes to analyze.</p>
+<a class="reference internal image-reference" href="../_images/main_plot_filters.png"><img alt="../_images/main_plot_filters.png" class="align-center" src="../_images/main_plot_filters.png" style="width: 35%;" /></a>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>It is important to note that when conducting multiple comparisons, the comparisons are labeled based on the order that they are input. If you don’t remember which samples are in your current comparison you can always view the samples in each condition at the top of the main plots.</p>
+<img alt="../_images/selected_conditions.png" class="last align-center" src="../_images/selected_conditions.png" />
 </div>
-<div class="section" id="heat-maps">
-<h2>Heat Maps<a class="headerlink" href="#heat-maps" title="Permalink to this headline">¶</a></h2>
-<p>The heatmap is a great way to analyze replicate results of genes all in
-one simple plot (Figure 17).  Users have the option to change the clustering method used
-as well as the distance method used to display their heatmap.  In addition,
-you can also change the size of the heatmap produced and adjust the p-adjust
-and fold change cut off for this plot as well.  Once all of the parameters
-have been set, click the ‘Submit!’ button at the bottom of the left menu to
-generate your heatmap.</p>
-<p>## Used clustering and linkage methods in heatmap</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt><strong>complete:</strong></dt>
-<dd>Complete-linkage clustering is one of the linkage method used in hierarchical clustering.
-In each step of clustering, closest cluster pairs are always merged up to a specified distance     threshold. Distance between clusters for complete link clustering is the maximum of
-the distances between the members of the clusters.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>ward D2:</strong></dt>
-<dd>Ward method aims to find compact and spherical clusters. The distance between two clusters
-is calculated by the sum of squared deviations from points to centroids. “ward.D2” method uses
-criterion (Murtagh and Legendre 2014) to minimize ward clustering method. The only difference
-ward.D2 and ward is the dissimilarities from ward method squared before cluster updating. This
-method tends to be sensitive to the outliers.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>single:</strong></dt>
-<dd>Distance between clusters for single linkage is the minimum of  the distances between
-the members of the clusters.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>average:</strong></dt>
-<dd>Distance between clusters for average linkage is the average of the distances between
-the members of the clusters.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>mcquitty:</strong></dt>
-<dd>mcquitty linkage is when two clusters are joined, the distance of the new cluster
-to any other cluster is calculated by the average of the distances of the soon to be
-joined clusters to that other cluster.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>median:</strong></dt>
-<dd>This is a different averaging method that uses the median instead of the mean.
-It is used to reduce the effect of outliers.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>centroid:</strong></dt>
-<dd>The distance between cluster pairs is defined as the Euclidean distance
-between their centroids or means.</dd>
-</dl>
-</li>
-</ul>
-<p>## Used distance methods in heatmap</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt><strong>cor:</strong></dt>
-<dd>1 - cor(x) are used to define the dissimilarity between samples. It is less
-sensitive to the outliers and scaling.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>euclidean:</strong></dt>
-<dd>It is the most common use of distance. It is sensitive to the outliers and scaling.
-It is defined as the square root of the sum of the square differences between gene counts.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>maximum:</strong></dt>
-<dd>The maximum distance between two samples is the sum of the maximum expression value of the
-corresponding genes.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>manhattan:</strong></dt>
-<dd>The Manhattan distance between two samples is the sum of the differences of their
-corresponding genes.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>canberra:</strong></dt>
-<dd>Canberra distance is similar to the Manhattan distance and it is a special form of
-the Minkowski distance. The difference is that the absolute difference between the
-gene counts of the two genes is divided by the sum of the absolute counts
-prior to summing.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><strong>minkowsky:</strong></dt>
-<dd>It is generalized form of euclidean distance.</dd>
-</dl>
-</li>
-</ul>
-<p>You can also select to view an interactive version of the heatmap by clicking
-on the ‘Interactive’ checkbox on the left panel under the height and width
-options.  Selecting this feature changes the heatmap into an interactive
-version with two colors, allowing you to select specific genes to be compared
-within the GO term plots.  In order to use the interactive heatmap selection
-within your GO term query, you must use either the up+down dataset or the
-most varied dataset for the heatmap display.</p>
+<p>After DE analysis, you can always download the results in CSV format by clicking the <strong>Download Data</strong> button located under the <strong>Select Plot Options</strong>. You can also download the plot or graphs by clicking on the <strong>download</strong> button at top of each plot or graph.</p>
+</div>
+<div class="section" id="the-heatmap-of-de-analysis">
+<h2>The Heatmap of DE Analysis<a class="headerlink" href="#the-heatmap-of-de-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Once you’ve selected a specific region on Main Plots (Scatter, Volcano or MA plot), a new heatmap of the selected area will appear just next to your plot. If you want to hide some groups (such as Up, Down or NS based on DE analysis), just click on the group label on the top right part of the figure. In this way, you can select a specific part of the genes by <strong>lasso select</strong> or <strong>box select</strong> tools that includes only <strong>Up</strong> or <strong>Down</strong> Regulated genes. As soon as you completed your selection, heatmap will be created simultaneously. Please find details about heatmaps on <a class="reference external" href="./../heatmap/heatmap.html">Heatmaps</a> section.</p>
+<a class="reference internal image-reference" href="../_images/main_plot_selection.png"><img alt="../_images/main_plot_selection.png" class="align-center" src="../_images/main_plot_selection.png" style="width: 99%;" /></a>
+<p><strong>A.</strong> Box Selection, <strong>B.</strong> Lasso Selection, <strong>C.</strong> Created heatmap based on selection</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">We strongly recommend normalization before plotting heatmaps. To normalize, please change the parameters that are located under: <strong>Select Plot options -&gt; Normalization Methods</strong> and select the method from the dropdown box.</p>
+</div>
 </div>
 <div class="section" id="go-term-plots">
 <h2>GO Term Plots<a class="headerlink" href="#go-term-plots" title="Permalink to this headline">¶</a></h2>
@@ -668,32 +407,57 @@ All of the tables have a built in search function at the top right of the table 
 by column by clicking on the column header you wish to sort by.  The ‘Search’ box on the left panel allows for multiple searches via
 a comma-seperated list.  You can additionally use regex terms such as “^al” or “*lm” for even more advanced searching.
 This search will be applied to wherever you are within DEBrowser, including both the plots and the tables.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you enter more than three lines of genes, search tool will automatically match the beginning and end of the search phrases. Otherwise it will find matched substrings in the gene list.</p>
 </div>
-<div class="section" id="saving-the-state">
-<h2>Saving the State<a class="headerlink" href="#saving-the-state" title="Permalink to this headline">¶</a></h2>
-<p>After the file upload is complete and a pair of conditions are selected, “Save Selection!”
-button should appear on the sidebar on the left. If you click this button, you will be able
-to name your save and access it later with the name you choose. There are certain limitations
-on the naming, but you will be given an error message to make the necessary correction as it is
-based on bookmarking functionality of Shiny.</p>
-<p>Your new save will appear as a clickable link under “New Save:” and as you make more saves, those
-will be available under “History:” after refreshing the page. Only the last 20 saves will appear
-for better user interface, so it is advisable to delete the unused saves by clicking “X” icon.</p>
+<hr class="docutils" />
+<p>You can also view specific tables of your input data for each type of dataset available and search for a specific geneset
+by inputting a comma-seperated list of genes or regex terms to search for in the search box within the left panel.
+To view these tables, you must select the tab labeled ‘Tables’ as well as the dataset from the dropdown menu on the left panel.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you ever want to change your parameters, or even add a new set of comparisons, you can always return to the <em>Data Prep</em> tab to change and resubmit your data.</p>
 </div>
-<div class="section" id="google-login">
-<h2>Google Login<a class="headerlink" href="#google-login" title="Permalink to this headline">¶</a></h2>
-<p>If you start up the shiny server using startDEBrowser(), you will automatically be logged in as ‘local’.
-However, if you use the runApp() command to start the server, you’ll be asked to log in using a
-Google account. This is to ensure the past saves correspond to the right person. You can log in using
-any Google account, and then give permission to the DEBrowser to log in for the first time.</p>
-<p>Once you are done using DEBrowser, you can either choose to stay logged in for your next use or sign out
-to stop access to your account. In order to sign out, click on the gear icon on the top right corner and
-then click on “Sign Out”. If you want to start over from the beginning while staying logged in, you can
-click on “Refresh” to go back to the beginning. You will still be able to access your save history when
-you sign out or refresh.</p>
 </div>
-<div class="section" id="id3">
-<h2>Autoload Data via Hyperlink<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="quality-control-plots">
+<h2>Quality Control Plots<a class="headerlink" href="#quality-control-plots" title="Permalink to this headline">¶</a></h2>
+<p>Selecting the ‘QC Plots’ tab will take you to the quality control plots section.  The page opens with a Principal Component Analysis (PCA) plot and users can also view a All2All, heatmap, IQR, and density by choosing <strong>Plot Type</strong> in the left panel. Here the dataset being used in the plots, depends on the parameters you selected in the left panel. Therefore, you are able to adjust the size of the plots under ‘width’ and ‘height’ as well as alter a variety of other parameters to adjust the specific plot you’re viewing.</p>
+<p>The All2All plot displays the correlation between each sample, Heatmap shows a heatmap representation of your data, IQR displays a barplot displaying the IQR between samples, and Density will display an overlapping density graph for each sample. You also have the ability to select the type of clustering and distance method for the heatmap produced to further customize your quality control measures. Users also have the option to select which type of normalization methods they would like to use for these specific plotting analysis within the left menu.</p>
+<a class="reference internal image-reference" href="../_images/intro_sidebar.png"><img alt="../_images/intro_sidebar.png" class="align-center" src="../_images/intro_sidebar.png" style="width: 30%;" /></a>
+<p>Ploting Options</p>
+<img alt="../_images/intro_qc_all2all.png" class="align-center" src="../_images/intro_qc_all2all.png" />
+<p>All2All Plot</p>
+<img alt="../_images/intro_qc_heatmap.png" class="align-center" src="../_images/intro_qc_heatmap.png" />
+<p>Heatmap Options to Normalize All Detected Data and Created Heatmap</p>
+<img alt="../_images/intro_qc_pca.png" class="align-center" src="../_images/intro_qc_pca.png" />
+<p>PCA Plot</p>
+<img alt="../_images/intro_qc_pca_loads.png" class="align-center" src="../_images/intro_qc_pca_loads.png" />
+<p>PCA Loadings</p>
+<img alt="../_images/iqr_plot.png" class="align-center" src="../_images/iqr_plot.png" />
+<p>IQR Plot Before Normalization</p>
+<img alt="../_images/iqr_plot_norm.png" class="align-center" src="../_images/iqr_plot_norm.png" />
+<p>IQR Plot After Normalization</p>
+<img alt="../_images/density_plot.png" class="align-center" src="../_images/density_plot.png" />
+<p>Density Plot Before Normalization</p>
+<img alt="../_images/density_plot_norm.png" class="align-center" src="../_images/density_plot_norm.png" />
+<p>Density Plot After Normalization</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Each QC plot also has options to adjust the plot height and width, as well as a download button for a png output located above each plot.</p>
+</div>
+<p>For the Heatmap, you can also view an interactive session of the heatmap by selecting the ‘Interactive’ checkbox before submitting your
+heatmap request.  Make sure that before selecting the interactive heatmap option that your dataset being used is ‘Up+down’.
+Just like in the Main Plots, you can click and drag to create a selection. To select a specific portion of the heatmap, make sure
+to highlight the middle of the heatmap gene box in order to fully select a specific gene.  This selection can be used later within the
+GO Term plots for specific queries on your selection. For find more details please click <a class="reference external" href="./../heatmap/heatmap.html">Heatmaps</a> section.</p>
+<a class="reference internal image-reference" href="../_images/interactive_heatmap.png"><img alt="../_images/interactive_heatmap.png" class="align-center" src="../_images/interactive_heatmap.png" style="width: 99%;" /></a>
+<ol class="upperalpha simple">
+<li>Before Selection B. Selection of area with zoom tool C. Zoomed heatmap region which allows better viewing resolution.</li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>Autoload Data via Hyperlink<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>DEBrowser also accepts TSV’s via hyperlink by following conversion steps. First, using the API provided by Dolphin, we will convert TSV into an html represented TSV using this website:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dolphin</span><span class="o">.</span><span class="n">umassmed</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">public</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
 </pre></div>
@@ -755,7 +519,7 @@ link.</a>.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Alper Kucukural, Nicholas Merowsky.
+        &copy; Copyright 2016, Alper Kucukural, Manuel Garber, Onur Yukselen.
 
     </p>
   </div>
