@@ -5,73 +5,73 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>Quick-start Guide &mdash; DEBrowser 1.1.10 documentation</title>
-  
 
-  
-  
-  
-  
 
-  
 
-  
-  
-    
 
-  
 
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
 
-  
 
-  
+
+
+
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="DEBrowser 1.1.10 documentation" href="../index.html"/>
         <link rel="next" title="Local Install Guide" href="../local/local.html"/>
-        <link rel="prev" title="Welcome to DEBrowser’s documentation!" href="../index.html"/> 
+        <link rel="prev" title="Welcome to DEBrowser’s documentation!" href="../index.html"/>
 
-  
+
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
-   
+
   <div class="wy-grid-for-nav">
 
-    
+
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search">
-          
 
-          
+
+
             <a href="../index.html" class="icon icon-home"> DEBrowser
-          
 
-          
+
+
           </a>
 
-          
-            
-            
+
+
+
               <div class="version">
                 1.1.10
               </div>
-            
-          
 
-          
+
+
+
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,16 +80,16 @@
   </form>
 </div>
 
-          
+
         </div>
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+
+
+
+
+
+
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick-start Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
@@ -114,27 +114,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 </ul>
 
-            
-          
+
+
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-      
+
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
+
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">DEBrowser</a>
-        
+
       </nav>
 
 
-      
+
       <div class="wy-nav-content">
         <div class="rst-content">
-          
+
 
 
 
@@ -153,28 +153,28 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
-    
+
       <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+
       <li>Quick-start Guide</li>
-    
-    
+
+
       <li class="wy-breadcrumbs-aside">
-        
-            
+
+
             <a href="../_sources/quickstart/quickstart.rst.txt" rel="nofollow"> View page source</a>
-          
-        
+
+
       </li>
-    
+
   </ul>
 
-  
+
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+
   <div class="section" id="quick-start-guide">
 <h1>Quick-start Guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h1>
 <p>This guide is walkthrough for the DEBrowser from start to finish.</p>
@@ -589,25 +589,87 @@ link.</a>.</p>
 </div>
 <p>Inputting this URL into your browser will automatically load in that tsv to be analyzed by DEBrowser!</p>
 </div>
+<div class="section" id="saving-the-state">
+<h2>Saving the State<a class="headerlink" href="#saving-the-state" title="Permalink to this headline">¶</a></h2>
+<p>After the file upload is complete and a pair of conditions are selected, “Save Selection!”
+button should appear on the sidebar on the left. If you click this button, you will be able
+to name your save and access it later with the name you choose. There are certain limitations
+on the naming, but you will be given an error message to make the necessary correction as it is
+based on bookmarking functionality of Shiny.</p>
+<p>Your new save will appear as a clickable link under “New Save:” and as you make more saves, those
+will be available under “History:” after refreshing the page. Only the last 20 saves will appear
+for better user interface, so it is advisable to delete the unused saves by clicking “X” icon.</p>
+</div>
+<div class="section" id="google-login">
+<h2>Google Login<a class="headerlink" href="#google-login" title="Permalink to this headline">¶</a></h2>
+<p>If you start up the shiny server using startDEBrowser(), you will automatically be logged in as ‘local’.
+However, if you use the runApp() command to start the server, you’ll be asked to log in using a
+Google account. This is to ensure the past saves correspond to the right person. You can log in using
+any Google account, and then give permission to the DEBrowser to log in for the first time.</p>
+<p>Once you are done using DEBrowser, you can either choose to stay logged in for your next use or sign out
+to stop access to your account. In order to sign out, click on the gear icon on the top right corner and
+then click on “Sign Out”. If you want to start over from the beginning while staying logged in, you can
+click on “Refresh” to go back to the beginning. You will still be able to access your save history when
+you sign out or refresh.</p>
+</div>
+<div class="section" id="id3">
+<h2>Autoload Data via Hyperlink<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>DEBrowser also accepts TSV’s via hyperlink by following conversion steps. First, using the API provided by Dolphin, we will convert TSV into an html represented TSV using this website:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dolphin</span><span class="o">.</span><span class="n">umassmed</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">public</span><span class="o">/</span><span class="n">api</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>The two parameters it accepts (and examples) are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>source=https://bioinfo.umassmed.edu/pub/debrowser/advanced_demo.tsv</li>
+<li>format=JSON</li>
+</ol>
+</div></blockquote>
+<p>Leaving you with a hyperlink for:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://dolphin.umassmed.edu/public/api/?source=https://bioinfo.umassmed.edu/pub/debrowser/advanced_demo.tsv&amp;format=JSON
+</pre></div>
+</div>
+<p>Next you will need to encode the url so you can pass it to the DEBrowser website.
+You can find multiple url encoders online, such as the one located at <a class="reference external" href="https://www.url-encode-decode.com/">this
+link.</a>.</p>
+<p>Encoding our URL will turn it into this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">2</span><span class="n">F</span><span class="o">%</span><span class="mi">2</span><span class="n">Fdolphin</span><span class="o">.</span><span class="n">umassmed</span><span class="o">.</span><span class="n">edu</span><span class="o">%</span><span class="mi">2</span><span class="n">Fpublic</span><span class="o">%</span><span class="mi">2</span><span class="n">Fapi</span><span class="o">%</span><span class="mi">2</span><span class="n">F</span><span class="o">%</span><span class="mi">3</span><span class="n">Fsource</span><span class="o">%</span><span class="mi">3</span><span class="n">Dhttp</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">2</span><span class="n">F</span><span class="o">%</span><span class="mi">2</span><span class="n">Fbioinfo</span><span class="o">.</span><span class="n">umassmed</span><span class="o">.</span><span class="n">edu</span><span class="o">%</span><span class="mi">2</span><span class="n">Fpub</span><span class="o">%</span><span class="mi">2</span><span class="n">Fdebrowser</span><span class="o">%</span><span class="mi">2</span><span class="n">Fadvanced_demo</span><span class="o">.</span><span class="n">tsv</span><span class="o">%</span><span class="mi">26</span><span class="nb">format</span><span class="o">%</span><span class="mi">3</span><span class="n">DJSON</span>
+</pre></div>
+</div>
+<p>Now this link can be used in debrowser as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">debrowser</span><span class="o">.</span><span class="n">umassmed</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="mi">443</span><span class="o">/</span><span class="n">debrowser</span><span class="o">/</span><span class="n">R</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>It accepts two parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">jsonobject</span><span class="o">=</span> <span class="n">http</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">2</span><span class="n">F</span><span class="o">%</span><span class="mi">2</span><span class="n">Fdolphin</span><span class="o">.</span><span class="n">umassmed</span><span class="o">.</span><span class="n">edu</span><span class="o">%</span><span class="mi">2</span><span class="n">Fpublic</span><span class="o">%</span><span class="mi">2</span><span class="n">Fapi</span><span class="o">%</span><span class="mi">2</span><span class="n">F</span><span class="o">%</span><span class="mi">3</span><span class="n">Fsource</span><span class="o">%</span><span class="mi">3</span><span class="n">Dhttp</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">2</span><span class="n">F</span><span class="o">%</span><span class="mi">2</span><span class="n">Fbioinfo</span><span class="o">.</span><span class="n">umassmed</span><span class="o">.</span><span class="n">edu</span><span class="o">%</span><span class="mi">2</span><span class="n">Fpub</span><span class="o">%</span><span class="mi">2</span><span class="n">Fdebrowser</span><span class="o">%</span><span class="mi">2</span><span class="n">Fadvanced_demo</span><span class="o">.</span><span class="n">tsv</span><span class="o">%</span><span class="mi">26</span><span class="nb">format</span><span class="o">%</span><span class="mi">3</span><span class="n">DJSON</span>
+<span class="mf">2.</span> <span class="n">title</span><span class="o">=</span> <span class="n">no</span>
+</pre></div>
+</div>
+<p>The finished product of the link will look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://debrowser.umassmed.edu:443/debrowser/R/?jsonobject=https://dolphin.umassmed.edu/public/api/?source=https://bioinfo.umassmed.edu/pub/debrowser/advanced_demo.tsv&amp;format=JSON&amp;title=no
+</pre></div>
+</div>
+<p>Inputting this URL into your browser will automatically load in that tsv to be analyzed by DEBrowser!</p>
+</div>
 </div>
 
 
            </div>
            <div class="articleComments">
-            
+
            </div>
           </div>
           <footer>
-  
+
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+
         <a href="../local/local.html" class="btn btn-neutral float-right" title="Local Install Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
+
+
         <a href="../index.html" class="btn btn-neutral" title="Welcome to DEBrowser’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+
     </div>
-  
+
 
   <hr/>
 
@@ -617,7 +679,7 @@ link.</a>.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -627,10 +689,10 @@ link.</a>.</p>
     </section>
 
   </div>
-  
 
 
-  
+
+
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
@@ -646,21 +708,21 @@ link.</a>.</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
 
-  
 
-  
-  
+
+
+
     <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
 
-  
-  
+
+
+
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-   
+
 
 </body>
 </html>
