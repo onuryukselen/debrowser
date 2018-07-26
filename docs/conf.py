@@ -49,8 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'DEBrowser'
-copyright = u'2016, Alper Kucukural, Nicholas Merowsky'
-author = u'Alper Kucukural, Nicholas Merowsky'
+copyright = u'2016, Alper Kucukural, Manuel Garber, Onur Yukselen'
+author = u'Alper Kucukural, Manuel Garber, Onur Yukselen'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -260,7 +260,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'DEBrowser.tex', u'DEBrowser Documentation',
-     u'Alper Kucukural, Nicholas Merowsky', 'manual'),
+     u'Alper Kucukural, Manuel Garber, Onur Yukselen', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

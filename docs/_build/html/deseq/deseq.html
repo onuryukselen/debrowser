@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>DESeq/DEBrowser &mdash; DEBrowser 1.1.10 documentation</title>
+  <title>DE Analysis &mdash; DEBrowser 1.1.10 documentation</title>
   
 
+  
+  
   
   
 
@@ -30,8 +32,11 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="DEBrowser 1.1.10 documentation" href="../index.html"/>
-        <link rel="next" title="DEBrowser Additions" href="../future/future.html"/>
+        <link rel="next" title="HEATMAPS" href="../heatmap/heatmap.html"/>
         <link rel="prev" title="Local Install Guide" href="../local/local.html"/> 
 
   
@@ -41,6 +46,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -81,10 +87,13 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/quickstart.html">Quick-start Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../local/local.html">Local Install Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DESeq/DEBrowser</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DE Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">DESeq2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#un-normalized-counts">Un-normalized counts</a></li>
@@ -93,11 +102,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#used-parameters-for-edger">Used parameters for EdgeR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#limma">Limma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#used-parameters-for-limma">Used parameters for Limma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combat">ComBat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#debrowser">DEBrowser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../heatmap/heatmap.html">HEATMAPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../future/future.html">DEBrowser Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 </ul>
 
             
@@ -110,8 +122,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">DEBrowser</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DEBrowser</a>
+        
       </nav>
 
 
@@ -120,30 +134,47 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>DESeq/DEBrowser</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>DE Analysis</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/deseq/deseq.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/deseq/deseq.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="deseq-debrowser">
-<h1>DESeq/DEBrowser<a class="headerlink" href="#deseq-debrowser" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="de-analysis">
+<h1>DE Analysis<a class="headerlink" href="#de-analysis" title="Permalink to this headline">¶</a></h1>
 <p>This guide contains a breif discription of DESeq2 used within the DEBrowser</p>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -155,8 +186,7 @@ variance within condition, is higher than expected by chance.  <a class="referen
 package available via Bioconductor and is designed to normalize count data
 from high-throughput sequencing assays such as RNA-Seq and test for
 differential expression (Love et al. 2014).  For more information on the
-DESeq2 algorithm, you can visit <a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf">this website</a>  With multiple parameters such as
-padjust values, log fold changes, and plot styles, altering plots
+DESeq2 algorithm, you can visit <a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf">this website</a>  With multiple parameters such as padjust values, log fold changes, and plot styles, altering plots
 created with your DE data can be a hassle as well as time consuming.  The
 Differential Expression Browser uses DESeq2, EdgeR, and Limma coupled with shiny to produce
 real-time changes within your plot queries and allows for interactive browsing
@@ -168,7 +198,7 @@ even further.</p>
 <h2>DESeq2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>For the details please check the user guide.
 <a class="reference external" href="https://www.bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.pdf">DESeq2 userguide</a></p>
-<p>DESeq2 performs multiple steps in order to analyze the data you&#8217;ve provided for it.
+<p>DESeq2 performs multiple steps in order to analyze the data you’ve provided for it.
 The first step is to indicate the condition that each column (experiment) in the table represent.
 You can group multiple samples into one condition column.
 DESeq2 will compute the probability that a gene is differentially expressed (DE) for ALL genes in the table. It outputs
@@ -181,38 +211,34 @@ both a nominal and a multiple hypothesis corrected p-value (padj) using a negati
 <div class="section" id="used-parameters-for-deseq2">
 <h2>Used parameters for DESeq2<a class="headerlink" href="#used-parameters-for-deseq2" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><dl class="first docutils">
 <dt>fitType:</dt>
-<dd><p class="first last">either &#8220;parametric&#8221;, &#8220;local&#8221;, or &#8220;mean&#8221; for the type
+<dd>either “parametric”, “local”, or “mean” for the type
 of fitting of dispersions to the mean intensity.
-See estimateDispersions for description.</p>
-</dd>
+See estimateDispersions for description.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>betaPrior:</dt>
-<dd><p class="first last">whether or not to put a zero-mean normal prior
+<dd>whether or not to put a zero-mean normal prior
 on the non-intercept coefficients See nbinomWaldTest for
 description of the calculation of the beta prior. By default,
 the beta prior is used only for the Wald test, but can also be
-specified for the likelihood ratio test.</p>
-</dd>
+specified for the likelihood ratio test.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>testType:</dt>
-<dd><p class="first last">either &#8220;Wald&#8221; or &#8220;LRT&#8221;, which will then use either
+<dd>either “Wald” or “LRT”, which will then use either
 Wald significance tests (defined by nbinomWaldTest), or the
 likelihood ratio test on the difference in deviance between a
-full and reduced model formula (defined by nbinomLRT)</p>
-</dd>
+full and reduced model formula (defined by nbinomLRT)</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>rowsum.filter:</dt>
-<dd><p class="first last">regions/genes/isoforms with total count (across all samples) below this value will be filtered out</p>
-</dd>
+<dd>regions/genes/isoforms with total count (across all samples) below this value will be filtered out</dd>
 </dl>
 </li>
 </ul>
@@ -226,37 +252,33 @@ full and reduced model formula (defined by nbinomLRT)</p>
 <div class="section" id="used-parameters-for-edger">
 <h2>Used parameters for EdgeR<a class="headerlink" href="#used-parameters-for-edger" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><dl class="first docutils">
 <dt>Normalization:</dt>
-<dd><p class="first last">Calculate normalization factors to scale the raw
-library sizes. Values can be &#8220;TMM&#8221;,&#8221;RLE&#8221;,&#8221;upperquartile&#8221;,&#8221;none&#8221;.</p>
-</dd>
+<dd>Calculate normalization factors to scale the raw
+library sizes. Values can be “TMM”,”RLE”,”upperquartile”,”none”.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Dispersion:</dt>
-<dd><p class="first last">either a numeric vector of dispersions or a character
+<dd>either a numeric vector of dispersions or a character
 string indicating that dispersions should be taken from the data
-object.</p>
-</dd>
+object.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>testType:</dt>
-<dd><p class="first last">exactTest or glmLRT. exactTest: Computes p-values for differential
+<dd>exactTest or glmLRT. exactTest: Computes p-values for differential
 abundance for each gene between two samples, conditioning
 on the total count for each gene. The counts in each group are assumed to
 follow a binomial distribution.
 glmLRT: Fits a negative binomial generalized log-linear model to the read
-counts for each gene and conducts genewise statistical tests.</p>
-</dd>
+counts for each gene and conducts genewise statistical tests.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>rowsum.filter:</dt>
-<dd><p class="first last">regions/genes/isoforms with total count (across all samples) below this value will be filtered out</p>
-</dd>
+<dd>regions/genes/isoforms with total count (across all samples) below this value will be filtered out</dd>
 </dl>
 </li>
 </ul>
@@ -271,34 +293,37 @@ counts for each gene and conducts genewise statistical tests.</p>
 <div class="section" id="used-parameters-for-limma">
 <h2>Used parameters for Limma<a class="headerlink" href="#used-parameters-for-limma" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><dl class="first docutils">
 <dt>Normalization:</dt>
-<dd><p class="first last">Calculate normalization factors to scale the raw library sizes. Values can be &#8220;TMM&#8221;,&#8221;RLE&#8221;,&#8221;upperquartile&#8221;,&#8221;none&#8221;.</p>
-</dd>
+<dd>Calculate normalization factors to scale the raw library sizes. Values can be “TMM”,”RLE”,”upperquartile”,”none”.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Fit Type:</dt>
-<dd><p class="first last">fitting method; &#8220;ls&#8221; for least squares or &#8220;robust&#8221; for robust regression</p>
-</dd>
+<dd>fitting method; “ls” for least squares or “robust” for robust regression</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Norm. Bet. Arrays:</dt>
-<dd><p class="first last">Normalization Between Arrays; Normalizes expression intensities so that the
-intensities or log-ratios have similar distributions across a set of arrays.</p>
-</dd>
+<dd>Normalization Between Arrays; Normalizes expression intensities so that the
+intensities or log-ratios have similar distributions across a set of arrays.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>rowsum.filter:</dt>
-<dd><p class="first last">regions/genes/isoforms with total count (across all samples) below this value will be filtered out</p>
-</dd>
+<dd>regions/genes/isoforms with total count (across all samples) below this value will be filtered out</dd>
 </dl>
 </li>
 </ul>
 </div></blockquote>
+</div>
+<div class="section" id="combat">
+<h2>ComBat<a class="headerlink" href="#combat" title="Permalink to this headline">¶</a></h2>
+<p>For more details on ComBat, please check the user guide.
+<a class="reference external" href="https://bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf">ComBat userguide</a>.</p>
+<p>ComBat is part of the SVA R Bioconductor package which specializes in corecting for known batch effects.
+No additional parameters are selected or altered when running SVA’s ComBat.</p>
 </div>
 <div class="section" id="debrowser">
 <h2>DEBrowser<a class="headerlink" href="#debrowser" title="Permalink to this headline">¶</a></h2>
@@ -336,22 +361,26 @@ For more details about these plots and tables, please visit our quickstart guide
 <li>Ritchie,M.E. et al. (2015) limma powers differential expression analyses for RNA-sequencing and microarray studies. Nucleic Acids Res., 43, e47–e47.</li>
 <li>Trapnell,C. et al. (2012) Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks. Nat. Protoc., 7, 562–578.</li>
 <li>Vernia,S. et al. (2014) The PPAR$alpha$-FGF21 hormone axis contributes to metabolic regulation by the hepatic JNK signaling pathway. Cell Metab., 20, 512–525.</li>
-<li>Murtagh, Fionn and Legendre, Pierre (2014). Ward&#8217;s hierarchical agglomerative clustering method: which algorithms implement Ward&#8217;s criterion? Journal of Classification 31 (forthcoming).</li>
+<li>Murtagh, Fionn and Legendre, Pierre (2014). Ward’s hierarchical agglomerative clustering method: which algorithms implement Ward’s criterion? Journal of Classification 31 (forthcoming).</li>
+<li>Johnson et al. (2007) Adjusting batch effects in microarray expression data using empirical Bayes methods.  Biostatistics, 8, 118-127.</li>
 </ol>
 </div>
 </div>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../future/future.html" class="btn btn-neutral float-right" title="DEBrowser Additions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../heatmap/heatmap.html" class="btn btn-neutral float-right" title="HEATMAPS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../local/local.html" class="btn btn-neutral" title="Local Install Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../local/local.html" class="btn btn-neutral" title="Local Install Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -360,7 +389,7 @@ For more details about these plots and tables, please visit our quickstart guide
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Alper Kucukural, Nicholas Merowsky.
+        &copy; Copyright 2016, Alper Kucukural, Manuel Garber, Onur Yukselen.
 
     </p>
   </div>
@@ -385,7 +414,8 @@ For more details about these plots and tables, please visit our quickstart guide
             VERSION:'1.1.10',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

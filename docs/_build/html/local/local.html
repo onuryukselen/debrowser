@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -30,8 +32,11 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="DEBrowser 1.1.10 documentation" href="../index.html"/>
-        <link rel="next" title="DESeq/DEBrowser" href="../deseq/deseq.html"/>
+        <link rel="next" title="DE Analysis" href="../deseq/deseq.html"/>
         <link rel="prev" title="Quick-start Guide" href="../quickstart/quickstart.html"/> 
 
   
@@ -41,6 +46,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -81,14 +87,19 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/quickstart.html">Quick-start Guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Local Install Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#quick-local-install">Quick Local Install</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../deseq/deseq.html">DESeq/DEBrowser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deseq/deseq.html">DE Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../heatmap/heatmap.html">HEATMAPS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../future/future.html">DEBrowser Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 </ul>
 
             
@@ -101,8 +112,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">DEBrowser</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DEBrowser</a>
+        
       </nav>
 
 
@@ -111,23 +124,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Local Install Guide</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Local Install Guide</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/local/local.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/local/local.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -148,8 +178,8 @@ openssl-devel, libxml2-devel, libcurl-devel, libpng-devel)</p>
 <ol class="arabic">
 <li><p class="first">Install the required dependencies by running the following commands in R or RStudio.</p>
 <blockquote>
-<div><p>source(&#8220;<a class="reference external" href="http://www.bioconductor.org/biocLite.R">http://www.bioconductor.org/biocLite.R</a>&#8221;)</p>
-<p>biocLite(&#8220;debrowser&#8221;)</p>
+<div><p>source(“<a class="reference external" href="https://www.bioconductor.org/biocLite.R">https://www.bioconductor.org/biocLite.R</a>”)</p>
+<p>biocLite(“debrowser”)</p>
 </div></blockquote>
 </li>
 <li><p class="first">Start R and load the library</p>
@@ -163,22 +193,25 @@ openssl-devel, libxml2-devel, libcurl-devel, libpng-devel)</p>
 </div></blockquote>
 </li>
 </ol>
-<p>Once you run &#8216;startDEBrowser()&#8217; shiny will launch a web browser with your local version of DEBrowser running and ready to use!</p>
+<p>Once you run ‘startDEBrowser()’ shiny will launch a web browser with your local version of DEBrowser running and ready to use!</p>
 <p>For more information about DEBrowser, please visit our Quick-start Guide or our DESeq/DEBrowser section within readthedocs.</p>
 </div>
 </div>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../deseq/deseq.html" class="btn btn-neutral float-right" title="DESeq/DEBrowser" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../deseq/deseq.html" class="btn btn-neutral float-right" title="DE Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../quickstart/quickstart.html" class="btn btn-neutral" title="Quick-start Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../quickstart/quickstart.html" class="btn btn-neutral" title="Quick-start Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -187,7 +220,7 @@ openssl-devel, libxml2-devel, libcurl-devel, libpng-devel)</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Alper Kucukural, Nicholas Merowsky.
+        &copy; Copyright 2016, Alper Kucukural, Manuel Garber, Onur Yukselen.
 
     </p>
   </div>
@@ -212,7 +245,8 @@ openssl-devel, libxml2-devel, libcurl-devel, libpng-devel)</p>
             VERSION:'1.1.10',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
