@@ -1,6 +1,7 @@
 sample	batch	condition
-s1_b1_cA	1	A
-s2_b1_cA	1	A
-s3_b2_cB	2	B
-s4_b2_cB	2	B
-s5_b1_cB	1	B
+exper_rep1  1   A
+exper_rep2  2   A
+exper_rep3  1   A
+control_rep1    2   B
+control_rep2    1   B
+control_rep3    2   B

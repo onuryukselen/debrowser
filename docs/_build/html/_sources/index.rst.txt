@@ -14,7 +14,10 @@ Contents:
    quickstart/quickstart
    local/local
    deseq/deseq
+   heatmap/heatmap
+   modules/modules
    future/future
+   /examples/examples
 
 Indices and tables
 ==================
