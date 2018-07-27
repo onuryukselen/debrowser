@@ -93,7 +93,7 @@ The structure of the count data files are shown below:
 
 Please also note that, DEBrowser reads the gene names from the first column and skips other non numerical columns and starts reading the quantification values from the 3rd column in this case.
 
-In addition to the count data file; you need to upload metadata file to correct for batch effects or any other normalizing conditions you might want to address that might be within your results. To handle for these conditions, simply create a metadata file by using the example table at below or download sample file from `this link <https://bioinfo.umassmed.edu/pub/debrowser/simple_demo_meta.txt>`_.
+In addition to the count data file; you need to upload metadata file to correct for batch effects or any other normalizing conditions you might want to address that might be within your results. To handle for these conditions, simply create a metadata file by using the example table at below or download sample file from following link: <https://bioinfo.umassmed.edu/pub/debrowser/simple_demo_meta.txt>
 
 
 | sample       | batch | condition|
@@ -149,7 +149,7 @@ Afterwards, you may continue your analysis with **Batch Effect Correction** or d
 If specified metadata file containing your batch correction fields, then you have the option to conduct batch effect correction prior to your analysis. By adjusting parameters of **Options** box, you can investigate your character of your dataset. These parameters of the options box are explained as following:
 
 * **Normalization Method:** DEBrowser allows performing normalization prior the batch effect correction. You may choose your normalization method (among MRN (Median Ratio Normalization), TMM (Trimmed Mean of M-values), RLE (Relative Log Expression) and upperquartile), or skip this step by choosing **none** for this item. For our sample data, we gonna choose MRN normalization.
-* **Correction Method:** DEBrowser uses `ComBat <https://bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf>`_ (part of the SVA bioconductor package) or `Harman <https://www.bioconductor.org/packages/3.7/bioc/vignettes/Harman/inst/doc/IntroductionToHarman.html>`_ to adjust for possible batch effect or conditional biases. For more information, you can visit following links for documentation: `ComBat <https://bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf>`_, `Harman <https://www.bioconductor.org/packages/3.7/bioc/vignettes/Harman/inst/doc/IntroductionToHarman.html>`_ For our sample data, Combat correction was selected.
+* **Correction Method:** DEBrowser uses ComBat <https://bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf> (part of the SVA bioconductor package) or Harman <https://www.bioconductor.org/packages/3.7/bioc/vignettes/Harman/inst/doc/IntroductionToHarman.html> to adjust for possible batch effect or conditional biases. For more information, you can visit following links for documentation: ComBat <https://bioconductor.org/packages/release/bioc/vignettes/sva/inst/doc/sva.pdf>, Harman <https://www.bioconductor.org/packages/3.7/bioc/vignettes/Harman/inst/doc/IntroductionToHarman.html> For our sample data, Combat correction was selected.
 * **Treatment:** Please select the column that is specified in metadata file for comparision, such as cancer vs control. It is named *treatment* for our sample metadata.
 * **Batch:** Please select the column name in metadata file which differentiate the batches. For example in our metadata, it is called *batch*.
 
@@ -648,7 +648,7 @@ Since we finalized out plots without applying batch effect correction, we can re
     * **Treatment:** treatment
     * **Batch:** batch
         
-Please adjust PCA controls (which is located between two PCA plots) as listed below.
+* Please adjust PCA controls (which is located between two PCA plots) as listed below:
     
     * **Text On/Off:** On
     * **Select legend:** color
@@ -733,29 +733,29 @@ If you want to mark FABP3 gene on the plot, click on Data Options and enter **FA
        
 ![*Figure 48. example scatter lasso heatmap*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_scatter_lasso_heatmap.png "Figure 48. example scatter lasso heatmap")
     
-8) **Scatter plot of the genes enriched in insulin signalling pathway:** In this example, we will highlight genes enriched in insulin signalling pathway. If you already hid NS genes, you can show them by clicking on the **NS** label at the upper right side of the figure. Click on the **Data Options** and enter following genes in to the **search field**:: 
+8) **Scatter plot of the genes enriched in insulin signalling pathway:** In this example, we will highlight genes enriched in insulin signalling pathway. If you already hid NS genes, you can show them by clicking on the **NS** label at the upper right side of the figure. Click on the **Data Options** and enter following genes in to the **search field**: 
     
-    Cbl
-    Sos1
-    Irs2
-    Insr
-    Ptprf
-    Tsc1
-    Crkl
-    Prkar2a
-    Acaca
-    Fasn
-    Mapk8
-    Ppp1r3b
-    Ppp1r3c
-    Srebf1
-    Pklr
-    Pik3r1
-    Pygl
-    Pik3r3
-    Socs4
-    Socs2
-    Eif4ebp1
+        Cbl
+        Sos1
+        Irs2
+        Insr
+        Ptprf
+        Tsc1
+        Crkl
+        Prkar2a
+        Acaca
+        Fasn
+        Mapk8
+        Ppp1r3b
+        Ppp1r3c
+        Srebf1
+        Pklr
+        Pik3r1
+        Pygl
+        Pik3r3
+        Socs4
+        Socs2
+        Eif4ebp1
         
     
 * If you enter more than three lines of genes, search tool will automatically match the beginning and end of the search phrases. Otherwise it will find matched substrings in the gene list.
