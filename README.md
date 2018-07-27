@@ -115,13 +115,12 @@ You can have as many conditions as you may require, as long as all of the sample
     In the same way, 'batch' would have the first set as ``exper_rep1``, ``exper_rep3``, ``control_rep2`` from ``1`` and second set as ``exper_rep2``, ``control_rep1``, ``control_rep3`` from ``2`` as they correspond to those conditions in the ``batch`` column.
 
 Once the count data and metadata files have been loaded in Debrowser, you can click upload button to visualize your data as shown at below:
-
-.. image:: ../debrowser_pics2/upload_summary.png
-	:align: center
+    
+![*Figure 2. Upload Summary*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/upload_summary.png "Figure 2. Upload Summary")
 
 After loading the gene quantification file, and if specified the metadata file containing your batch correction fields, you then have the option to filter low counts and conduct batch effect correction prior to your analysis. Alternatively you may skip these steps and directly continue with differential expression analysis or view quality control (QC) information of your dataset.
 
-## Low Count Filtering
+# Low Count Filtering
 
 In this section, you can simultaneously visualise the changes of your dataset while filtering out the low count genes. Choose your filtration criteria from **Filtering Methods** box which is located just center of the screen. Three methods are available to be used:
 
@@ -131,9 +130,7 @@ In this section, you can simultaneously visualise the changes of your dataset wh
 
 After selection of filtering methods and entering threshold value, you can proceed by clicking **Filter** button which is located just bottom part of the **Filtering Methods** box. On the right part of the screen, your filtered dataset will be visualized for comparison as shown at figure below. 
 
-.. image:: ../debrowser_pics2/filtering.png
-	:align: center
-	:width: 99%
+![*Figure 3. Filtering*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/filtering.png "Figure 3. Filtering")
 
 You can easily compare following features, before and after filtering: 
 
@@ -146,14 +143,12 @@ You can easily compare following features, before and after filtering:
 
 	To investigate the gene/region vs samples data in detail as shown at below, you may click the **Show Data** button, located bottom part of the data tables. Alternatively, you may download all filtered data by clicking **Download** button which located next to **Show Data** button.  
 
-.. image:: ../debrowser_pics2/show_data.png
-	:align: center
-	:width: 70%
+![*Figure 4. Show Data*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/show_data.png "Figure 4. Show Data")
 
 Afterwards, you may continue your analysis with **Batch Effect Correction** or directly jump to differential expression analysis or view quality control (QC) information of your dataset.
 
 
-## Batch Effect Corrections
+# Batch Effect Corrections
 If specified metadata file containing your batch correction fields, then you have the option to conduct batch effect correction prior to your analysis. By adjusting parameters of **Options** box, you can investigate your character of your dataset. These parameters of the options box are explained as following:
 
 	* **Normalization Method:** DEBrowser allows performing normalization prior the batch effect correction. You may choose your normalization method (among MRN (Median Ratio Normalization), TMM (Trimmed Mean of M-values), RLE (Relative Log Expression) and upperquartile), or skip this step by choosing **none** for this item. For our sample data, we gonna choose MRN normalization.
@@ -163,18 +158,11 @@ If specified metadata file containing your batch correction fields, then you hav
 
 Upon clicking submit button, comparison tables and plots will be created on the right part of the screen as shown below.
 
-.. image:: ../debrowser_pics2/batch_PCA.png
-	:align: center
-	:width: 99%
+![*Figure 5. Batch Effect Correction - PCA*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/batch_PCA.png "Figure 5. Batch Effect Correction - PCA")
 
-.. image:: ../debrowser_pics2/batch_IQR.png
-	:align: center
-	:width: 99%
+![*Figure 6. Batch Effect Correction - IQR*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/batch_IQR.png "Figure 6. Batch Effect Correction - IQR")
 
-.. image:: ../debrowser_pics2/batch_density.png
-	:align: center
-	:width: 99%
-
+![*Figure 7. Batch Effect Correction - Density*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/batch_density.png "Figure 7. Batch Effect Correction - Density")
 
 You can investigate the changes on the data by comparing following features:
 
@@ -188,18 +176,14 @@ You can investigate the changes on the data by comparing following features:
 
 Since we have completed **batch effect correction and normalization** step, we can continue with one of the following options: 'Go to DE Analysis' and ,'Go to QC plots!'. First option takes you to page where differential expression analyses are conducted with DESeq2, EdgeR or Limma. The second option, 'Go to QC plots!', takes you to a page where you can view quality control metrics of your data by PCA, All2All, Heatmap, Density, and IQR plots.
 
-
-![*Figure 1. (A) The initial data selection menu.  Intial TSV data is loaded in the 'Choose TSV File' while the optional meta data file is loaded in under 'Choose Mera Data File (Optional)'.  (B) Options list once data/meta data have been loaded in.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_1.png "Figure 1. Initial option selection")
-
-
-## DE Analysis:
+# DE Analysis:
 
 The first option, 'Go to DE Analysis', takes you to the next step where differential expression analyses are conducted.
 
     * **Sample Selection:** In order to run DE analysis, you first need to select the samples which will be compared. To do so, click on "Add New Comparison" button, and choose **Select Meta** box as **treatment** to simplify fill ``Condition 1`` and ``Condition 2`` based on the **treatment** column of the metadata as shown below.
 
-        .. image:: ../debrowser_pics2/de_selection.png
-	       :align: center
+    ![*Figure 8. DE Selection*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/de_selection.png "Figure 8. DE Selection")
+
 
     If you need to remove samples from a condition, simply select the sample you wish to remove and hit the delete/backspace key. In case, you need to add a sample to a condition you can click on one of the condition text boxes to bring up a list of samples and then click on the sample you wish to add from the list and it will be added to the textbox for that comparison.
 
@@ -216,15 +200,13 @@ After clicking on the 'Submit!' button, DESeq2 will analyze your comparisons and
 Upon finishing the DESeq analysis, please click on **Go to Main Plots!** button which will open **Main Plots** tab where you will be able to view
 the interactive plots.
 
-.. image:: ../debrowser_pics/info_tabs.png
-	:align: center
+![*Figure 9. Info Tabs*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/info_tabs.png "Figure 9. Info Tabs")
 
 
 The page will loads with **Scatter Plot**. You can switch to **Volcano Plot** and **MA Plot** by using **Plot Type** section at the left side of the menu. Since these plots are interactive, you can click to **zoom** button on the top of the graph and select the area you would like to zoom in by drawing a rectangle. Please see the plots at below:
 
-    .. image:: ../debrowser_pics2/example_main_plots.png
-       :align: center
-       :width: 99%
+    ![*Figure 10. Main Plots*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_main_plots.png "Figure 10. Main Plots")
+    
 
 **A.** Scatter plot, **B.** Volcano plot, **C.** MA plot
 
@@ -232,33 +214,30 @@ The page will loads with **Scatter Plot**. You can switch to **Volcano Plot** an
 
     Please keep in mind that to increace the performance of the generating graph, by default 10% of non-significant(NS) genes are used to generate plots. You might show all NS genes by please click **Main Options** button and change Background Data(%) to 100% on the left sidebar.
 
-    .. image:: ../debrowser_pics2/example_background_data.png
-       :align: center
-       :width: 30%
+    ![*Figure 11. Background data*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_background_data.png "Figure 11. Background Data")
 
 
 You can hover over the scatterplot points to display more information about the point selected. A few bargraphs will be generated for the user to view as soon as a scatterplot point is hovered over.
 
-.. image:: ../debrowser_pics2/main_plot_hover.png
-	:align: center
-	:width: 99%
+![*Figure 12. main plot hover*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/main_plot_hover.png "Figure 12. main plot hover")
+
 
 **A.** Hover on Fabp3 gene, **B.** Read Counts vs Samples, **C.** Read Counts vs Conditions
 
 You also have a wide array of options when it comes to fold change cut-off levels, padj cut-off values, which comparison set to use, and dataset of genes to analyze.
 
 .. image:: ../debrowser_pics2/main_plot_filters.png
-	:align: center
-	:width: 35%
+![*Figure 13. main plot filters*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/main_plot_filters.png "Figure 13. main plot filters")
+
 
 .. tip::
 
     It is important to note that when conducting multiple comparisons, the comparisons are labeled based on the order that they are input. If you don't remember which samples are in your current comparison you can always view the samples in each condition at the top of the main plots.
 
-    .. image:: ../debrowser_pics2/selected_conditions.png
-	   :align: center
+![*Figure 14. Selected conditions*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/selected_conditions.png "Figure 14. Selected conditions")
 
-After DE analysis, you can always download the results in CSV format by clicking the **Download Data** button located under the **Select Plot Options**. You can also download the plot or graphs by clicking on the **download** button at top of each plot or graph.
+
+After DE analysis, you can always download the results in CSV format by clicking the **Download Data** button located under the **Data Options**. You can also download the plot or graphs by clicking on the **download** button at top of each plot or graph.
 
 # Differential Expression Calculations
 
@@ -364,17 +343,16 @@ than DESeq2 or EdgeR.
 
 ## The Heatmap of DE Analysis
 
-Once you've selected a specific region on Main Plots (Scatter, Volcano or MA plot), a new heatmap of the selected area will appear just next to your plot. If you want to hide some groups (such as Up, Down or NS based on DE analysis), just click on the group label on the top right part of the figure. In this way, you can select a specific part of the genes by **lasso select** or **box select** tools that includes only **Up** or **Down** Regulated genes. As soon as you completed your selection, heatmap will be created simultaneously. Please find details about heatmaps on `Heatmaps <./../heatmap/heatmap.html>`_ section.
+Once you've selected a specific region on Main Plots (Scatter, Volcano or MA plot), a new heatmap of the selected area will appear just next to your plot. If you want to hide some groups (such as Up, Down or NS based on DE analysis), just click on the group label on the top right part of the figure. In this way, you can select a specific part of the genes by **lasso select** or **box select** tools that includes only **Up** or **Down** Regulated genes. As soon as you completed your selection, heatmap will be created simultaneously. 
 
-.. image:: ../debrowser_pics2/main_plot_selection.png
-	:align: center
-	:width: 99%
+![*Figure 15. main plot selection*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/main_plot_selection.png "Figure 15. main plot selection")
+
 
 **A.** Box Selection, **B.** Lasso Selection, **C.** Created heatmap based on selection
 
 .. tip::
 
-    We strongly recommend normalization before plotting heatmaps. To normalize, please change the parameters that are located under: **Select Plot options -> Normalization Methods** and select the method from the dropdown box.
+    We strongly recommend normalization before plotting heatmaps. To normalize, please change the parameters that are located under: **Data options -> Normalization Methods** and select the method from the dropdown box.
 
 ## Used clustering and linkage methods in heatmap
 
@@ -452,9 +430,9 @@ Just like in the Main Plots, you can click and drag to create a selection.  To s
 to highlight the middle of the heatmap gene box in order to fully select a specific gene.  This selection can be used later within the
 GO Term plots for specific queries on your selection.
 
-.. image:: ../debrowser_pics2/interactive_heatmap.png
-	:align: center
-	:width: 99%
+
+![*Figure 16. interactive heatmap*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/interactive_heatmap.png "Figure 16. interactive heatmap")
+
 
 A. Before Selection B. Selection of area with zoom tool C. Zoomed heatmap region which allows better viewing resolution.
 
@@ -462,7 +440,7 @@ A. Before Selection B. Selection of area with zoom tool C. Zoomed heatmap region
     
     **Interactive Feature:** In order to increase the performance of the generating heatmaps, **interactive** option is disabled by default. After deciding plotting/clustering parameters of the heatmap, you might activate this feature to investigate each block in detail.
 
-## GO Term Plots
+# GO Term Plots
 
 The next tab, 'GO Term', takes you to the ontology comparison portion of
 DEBrowser.  From here you can select the standard dataset options such as
@@ -472,8 +450,7 @@ also can choose from the 4 different ontology plot options: 'enrichGO',
 'enrichKEGG', 'Disease', and 'compareCluster'.  Selecting one of these plot
 options queries their specific databases with your current DESeq results.
 
-.. image:: ../debrowser_pics/go_plots_opts.png
-	:align: center
+![*Figure 17. GO plots opts*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/go_plots_opts.png "Figure 17. go plots opts")
 
 Your GO plots include:
 
@@ -486,13 +463,11 @@ The types of plots you will be able to generate include:
 
 Summary plot:
 
-.. image:: ../debrowser_pics/go_summary.png
-	:align: center
+![*Figure 18. go summary*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/go_summary.png "Figure 18. go summary")
 
 GOdotplot:
 
-.. image:: ../debrowser_pics/go_dot_plot.png
-	:align: center
+![*Figure 19. go dot plot*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/go_dot_plot.png "Figure 19. go dot plot")
 
 Changing the type of ontology to use will also produce custom parameters for that specific ontology at the bottom of the
 left option panel.
@@ -500,7 +475,7 @@ left option panel.
 Once you have adjusted all of your parameters, you may hit the submit button in the top right and then wait
 for the results to show on screen!
 
-## Data Tables
+# Data Tables
 
 The last tab at the top of the screen displays various different data tables.
 These datatables include:
@@ -513,8 +488,8 @@ These datatables include:
 * Most varied genes
 * Comparison differences
 
-.. image:: ../debrowser_pics/datatable.png
-	:align: center
+![*Figure 20. datatable*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/datatable.png "Figure 20. datatable")
+
 
 All of the tables tables, except the Comparisons table, contain the following information:
 
@@ -534,8 +509,8 @@ For each pairwise comparison, these values will be generated:
 * pvalue of comparison A vs B
 * padj value of comparison A vs B
 
-.. image:: ../debrowser_pics/comparisons.png
-	:align: center
+![*Figure 21. comparisons*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/comparisons.png "Figure 21. comparisons")
+
 
 You can further customize and filter each specific table a multitude of ways.  For unique table or dataset options, select the type of
 table dataset you would like to customize on the left panel under 'Choose a dataset' to view it's additional options.
@@ -559,7 +534,7 @@ To view these tables, you must select the tab labeled 'Tables' as well as the da
 
     If you ever want to change your parameters, or even add a new set of comparisons, you can always return to the *Data Prep* tab to change and resubmit your data.
     
-## Quality Control Plots
+# Quality Control Plots
 
 Selecting the 'QC Plots' tab will take you to the quality control plots section.  The page opens with a Principal Component Analysis (PCA) plot and users can also view a All2All, heatmap, IQR, and density by choosing **Plot Type** in the left panel. Here the dataset being used in the plots, depends on the parameters you selected in the left panel. Therefore, you are able to adjust the size of the plots under 'width' and 'height' as well as alter a variety of other parameters to adjust the specific plot you're viewing.
 
@@ -575,49 +550,39 @@ left menu.
 
 The All2All plot displays the correlation between each sample, Heatmap shows a heatmap representation of your data, IQR displays a barplot displaying the IQR between samples, and Density will display an overlapping density graph for each sample. You also have the ability to select the type of clustering and distance method for the heatmap produced to further customize your quality control measures. Users also have the option to select which type of normalization methods they would like to use for these specific plotting analysis within the left menu.
 
-.. image:: ../debrowser_pics2/intro_sidebar.png
-	:align: center
-	:width: 30%
+![*Figure 22. intro sidebar*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/intro_sidebar.png "Figure 22. intro sidebar")
 
 Ploting Options
 
-.. image:: ../debrowser_pics2/intro_qc_all2all.png
-	:align: center
+![*Figure 23. intro qc all2all*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/intro_qc_all2all.png "Figure 23. intro qc all2all")
 
 All2All Plot
 
-.. image:: ../debrowser_pics2/intro_qc_heatmap.png
-	:align: center
+![*Figure 24. intro qc heatmap*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/intro_qc_heatmap.png "Figure 24. intro qc heatmap")
 
 Heatmap Options to Normalize All Detected Data and Created Heatmap
 
-.. image:: ../debrowser_pics2/intro_qc_pca.png
-	:align: center
+![*Figure 25. intro qc PCA*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/intro_qc_pca.png "Figure 25. intro qc PCA")
 
 PCA Plot
 
-.. image:: ../debrowser_pics2/intro_qc_pca_loads.png
-	:align: center
+![*Figure 26. intro qc pca loads*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/intro_qc_pca_loads.png "Figure 26. intro qc pca loads")
 
 PCA Loadings
 
-.. image:: ../debrowser_pics2/iqr_plot.png
-	:align: center
+![*Figure 27. iqr plot*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/intro_qc_pca_loads.png "Figure 27. iqr plot")
 
 IQR Plot Before Normalization
 
-.. image:: ../debrowser_pics2/iqr_plot_norm.png
-	:align: center
+![*Figure 28. iqr plot norm*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/iqr_plot_norm.png "Figure 28. iqr plot norm")
 
 IQR Plot After Normalization
 
-.. image:: ../debrowser_pics2/density_plot.png
-	:align: center
+![*Figure 29. density plot*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/density_plot.png "Figure 29. density plot")
 
 Density Plot Before Normalization
 
-.. image:: ../debrowser_pics2/density_plot_norm.png
-	:align: center
+![*Figure 30. density plot norm*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/density_plot_norm.png "Figure 30. density plot norm")
 
 Density Plot After Normalization
 
@@ -626,23 +591,224 @@ Density Plot After Normalization
     Each QC plot also has options to adjust the plot height and width, as well as a download button for a png output located above each plot.
 
 
-![*Figure 20. Display of the GO Plot section within DEBrowser.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_20.png "Figure 20. GO")
+With that, you've now successfully navigated the DEBrowser and are ready to start inserting your own data files and browsing your own experiments.  Enjoy the DEBrowser!
 
-![*Figure 22. Display of the GO dotplot section within DEBrowser.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_21.png "Figure 21. dotplot GO")
 
-![*Display of the DO plot section within DEBrowser.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_22.png "Figure 22. DO")
+# Examples
 
-![*Figure 23. Display of the DO dotplot section within DEBrowser.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_23.png "Figure 23. DO dotplot")
+This guide is walkthrough for the preparation of figures which is used in DEBrowser paper. PCA, Heatmap, All2All will be plotted as an example for QC plots. Next, differential expression analysis will be conducted and their results will be visualized with Main plots such as **Scatter**, **Volcano** and **MA**. More detailed analysis will be covered by using simultaneously created Heatmap and KEGG pathway on the selected portion of the data.
 
-![*Figure 24. Display of the KEGG dotplot section within DEBrowser.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_24.png "Figure 24. KEGG")
+## QC plots without Batch Effect Correction
 
-![*Figure 25. Display of Heatmap selected enriched GO Term search.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_25.png "Figure 25. heatmap enrich")
+    1) **Upload Data:** To begin the analysis, you need to load Demo Data by clicking **Load Demo (Donnard et al)!** button. Then click on **Filter** button to start **Low Count Filtering**. 
+    2) **Low Count Filtering:** Filtering method is selected as **Max** with cutoff 10 (which filter genes where maximum count for each gene across all samples are less than 10) and activated by clicking **Filter** button which is located at the center of the page. After filtration you can see the distribution of the data as shown at below. Now, you can proceed by clicking **Batch Effect Correction** button.
+    
+    ![*Figure 31. example filtering*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_filtering.png "Figure 31. example filtering")
 
-With that, you've now successfully navigated the DEBrowser and are ready to
-start inserting your own data files and browsing your own experiments.  Enjoy
-the DEBrowser!
+    
+    3) **Batch Effect Correction and Normalization:**  Following options were selected to normalize the data: 
+        
+        * **Normalization method:** MRN
+        * **Correction Method:** None
+        
+    In order to adjust the appearance, use PCA controls which is located between two PCA plots.
+    
+        * **Text On/Off:** On
+        * **Select legend:** color
+        * **Color field:** batch
+        * **Shape field:** batch
+        
+    ![*Figure 32. example pca before batch*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_pca_before_batch.png "Figure 32. example pca before batch")
 
-#       Case Study
+	
+    4) **All2All:**  After batch effect correction, you can click 'Go to QC plots!' to view quality control metrics on your data. The page opens with a Principal Component Analysis (PCA) plot. You can select **All2All** option from **Plot type** on the left sidebar menu. In order to get the figure as shown at below, you need to adjust other parameters of **plot options**    on the left sidebar menu.
+    
+    ![*Figure 33. example all2all before*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_all2all_before.png "Figure 33. example all2all before")
+  
+    * **All2All - Plot Options:** Following options are selected and their screenshots are shown at below.
+
+        * **Plot Type:** All2All
+        * **Data Options:** Choose a dataset: all-detected
+        * **QC options - all2all - Size & Margins:** Check the box of the **Plot Size** and adjust width and height as 800 and 800, respectively.
+        * **QC options - all2all - Options:**  corr font size: 1.8 (adjust the font size of the text inside the box)
+
+        
+    ![*Figure 34. example all2all menu*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_all2all_menu.png "Figure 34. example all2all menu")
+    
+    5) **Heatmap:**  To visualize heatmap as shown at below, please select **Heatmap** option from **Plot type** on the left sidebar menu and adjust plot options. 
+
+    ![*Figure 35. example heatmap before*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_heatmap_before.png "Figure 35. example heatmap before")
+
+    * **Heatmap - Plot Options:** Similar to All2All plot, we need to adjust plotting options on the left sidebar menu.
+
+        * **Plot Type:** Heatmap
+        * **Heatmap Colors:** Check the box of custom colors.
+        * **Data Options:** Choose a dataset: most varied, top-n:1000, total min count:100 (to show the top 1000 most varied genes (based on coefficient of variance) whose total counts are higher than 100)
+        * **QC options - kmeans:** Check the box of kmeans clustering. Select 7 as # of clusters. You might need to change the order of the clusters and click **change order** button to get gradual changes on heatmap as in the figure.
+        * **QC options - heatmap - Size & Margins:** Check the box of the **Plot Size** and adjust width and height to 690 and 1200, respectively.
+        
+    ![*Figure 36. example heatmap menu*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_heatmap_menu.png "Figure 36. example heatmap menu")
+
+
+## QC plots after Batch Effect Correction
+
+Since we finalized out plots without applying batch effect correction, we can return back to batch effect correction step and change the **Correction Method** as **Combat** and continue to create new graphs with the same parameters as we used before. To make it more user friendly, we gonna start explain these steps from the beginning. If you choose to continue from batch effect correction, please skip first two steps and continue reading from 3rd step: **Batch Effect Correction and Normalization**. 
+
+    1) **Upload Data:** To begin the analysis, load Demo Data by clicking **Load Demo (Donnard et al)!** button. Then click on **Filter** button to start **Low Count Filtering**. 
+    2) **Low Count Filtering:** Select **Max** method with cutoff 10 (which filter genes where maximum count for each gene across all samples are less than 10), then click **Filter** button which is located at the center of the page. After filtration, proceed to next step by clicking **Batch Effect Correction** button.
+    
+    3) **Batch Effect Correction and Normalization:**  Following options were selected to apply both normalization and batch effect correction: 
+        
+        * **Normalization method:** MRN
+        * **Correction Method:** Combat
+        * **Treatment:** treatment
+        * **Batch:** batch
+        
+    Please adjust PCA controls (which is located between two PCA plots) as listed below.
+    
+        * **Text On/Off:** On
+        * **Select legend:** color
+        * **Color field:** batch
+        * **Shape field:** batch
+        
+    ![*Figure 37. example pca after batch effect correction*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_pca_after_batch.png "Figure 37. example pca after batch effect correction")
+
+	
+    4) **All2All:**  After batch effect correction, click 'Go to QC plots!' and select **All2All** option from **Plot type** on the left sidebar menu. Please adjust All2All - Plot Options as listed below.
+    
+    ![*Figure 38. example all2all after batch effect correction*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_all2all_after.png "Figure 38. example all2all after batch effect correction")
+
+    
+    * **All2All - Plot Options:**
+
+        * **Plot Type:** All2All
+        * **Data Options:** Choose a dataset: all-detected
+        * **QC options - all2all - Size & Margins:** Check the box of the **Plot Size** and adjust width and height to 800 and 800, respectively.
+        * **QC options - all2all - Options:**  corr font size: 1.8 
+        
+    ![*Figure 39. example all2all menu*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_all2all_menu.png "Figure 39. example all2all menu")
+    
+    5) **Heatmap:**  Please select **Heatmap** option from **Plot type** on the left sidebar menu and adjust plot options according to the list below.
+
+    ![*Figure 40. example heatmap after batch effect correction*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_heatmap_after.png "Figure 40. example all2all after batch effect correction")
+
+
+    * **Heatmap - Plot Options:** 
+
+        * **Plot Type:** Heatmap
+        * **Heatmap Colors:** Check the box of custom colors.
+        * **Data Options:** Choose a dataset: most varied, top-n:1000, total min count:100 (to show the top 1000 most varied genes (based on coefficient of variance) whose total counts are higher than 100)
+        * **QC options - kmeans:** Check the box of kmeans clustering. Select 7 as # of clusters. You might need to change the order of the clusters and click **change order** button to get gradual changes on heatmap as in the figure.
+        * **QC options - heatmap - Size & Margins:** Check the box of the **Plot Size** and adjust width and height to 690 and 1200, respectively.
+        
+    ![*Figure 41. example heatmap menu*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_heatmap_menu.png "Figure 41. example heatmap menu")
+
+
+
+## The Differential Expression Plots
+
+    1) **Upload Data:** To begin the analysis, load Count Data by clicking **Load Demo (Vernia et. al)!** button. Then click on **Filter** button to start **Low Count Filtering**. 
+    2) **Low Count Filtering:** Select **Max** method with cutoff 10 (which filter genes where maximum count for each gene across all samples are less than 10), then click **Filter** button which is located at the center of the page. Proceed to next step by clicking **Batch Effect Correction** button.
+    3) **Batch Effect Correction and Normalization:**  We gonna skip both normalization and batch effect correction by selecting following options: 
+        
+        * **Normalization method:** None
+        * **Correction Method:** None
+        
+    4) **DE Analysis:**  After batch effect correction, click 'Go to DE Analysis'. In this page, we will add groups for comparison. Click on **Add New Comparison** button and select **Select Meta** as **treatment**. It will automatically separate experiment and control data into two groups. You can leave other parameters as default as listed below and click "Submit" button.
+    
+        * **DE method:** DESeq2
+        * **Fit Type:** parametric
+        * **betaPrior:** FALSE
+        * **Test Type:** Wald
+    
+    ![*Figure 42. example DE form*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_DE_form.png "Figure 42. example DE form")
+
+    5) **Main Plots Analysis:** Upon finishing the DESeq analysis, you will see DE Results in table format. Please click on **Go to Main Plots!** button which will open **Scatter Plot**. You can switch to **Volcano Plot** and **MA Plot** by using **Plot Type** section at the left side of the menu. Since these plots are interactive, you can click to **zoom** button on the top of the graph and select the area you would like to zoom in by drawing a rectangle. Please see the plots at below:
+
+    ![*Figure 43. example main plots*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_main_plots.png "Figure 43. example main plots")
+    
+    Please keep in mind that to increace the performance of the generating graph, by default 10% of non-significant(NS) genes are used to generate plots. We used all of the NS genes in our plots that showed above, therefore please click **Main Options** button and change Background Data(%) to 100% on the left sidebar.
+    
+    ![*Figure 44. example background data*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_background_data.png "Figure 44. example background data")
+
+    6) **Read count plots:** Lets return back to **Scatter Plot** by using **Plot Type** section. You can hover on each point on the graph to see their read counts as a bar graph as shown at below. In this example FABP3 is selected to show the high variance of this gene across samples.
+
+    ![*Figure 45. example scatter hover*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_scatter_hover.png "Figure 45. example scatter hover")
+       
+    If you want to mark FABP3 gene on the plot, click on Data Options and enter **FABP3** in to the **search field** as showed below. You will see green mark on the plot that shows FABP3.
+    
+    ![*Figure 46. example scatter search*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_scatter_search.png "Figure 46. example scatter search")
+
+
+    7) **Lasso selection:** DEBrowser can draw heatmaps of any selected region of any main plot. Selection can be made in a rectangular form or as a free-form using plotly’s lasso select. To do so, first click **NS** label at the upper right side of the figure, and hide non-significant genes. Then click on lasso select button at the top of the plot and select the genes you're interested as shown at below. Heatmap will appear just next to scatter plot. Additionally, you can activate interactive mapping option for heatmap by clicking **Interactive** button under **Heatmap Options** on the left sidebar menu. Now, you can hover on the each block of heatmap to see gene name and its value.
+    
+    .. tip::
+    
+        **Interactive Feature:** In order to increase the performance of the generating heatmaps, **interactive** option is disabled by default. After deciding plotting/clustering parameters of the heatmap, you might activate this feature to investigate each block in detail.
+    
+    ![*Figure 47. example scatter lasso*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_scatter_lasso.png "Figure 47. example scatter lasso")
+       
+    ![*Figure 48. example scatter lasso heatmap*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_scatter_lasso_heatmap.png "Figure 48. example scatter lasso heatmap")
+    
+    8) **Scatter plot of the genes enriched in insulin signalling pathway:** In this example, we will highlight genes enriched in insulin signalling pathway. If you already hid NS genes, you can show them by clicking on the **NS** label at the upper right side of the figure. Click on the **Data Options** and enter following genes in to the **search field**:: 
+    
+        Cbl
+        Sos1
+        Irs2
+        Insr
+        Ptprf
+        Tsc1
+        Crkl
+        Prkar2a
+        Acaca
+        Fasn
+        Mapk8
+        Ppp1r3b
+        Ppp1r3c
+        Srebf1
+        Pklr
+        Pik3r1
+        Pygl
+        Pik3r3
+        Socs4
+        Socs2
+        Eif4ebp1
+        
+    .. tip::
+    
+        If you enter more than three lines of genes, search tool will automatically match the beginning and end of the search phrases. Otherwise it will find matched substrings in the gene list.
+        
+        
+    Now, you will see green marks on the **searched genes** as shown below:
+    
+    ![*Figure 49. example scatter insulin A*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_scatter_insulin_A.png "Figure 49. example scatter insulin A")
+
+    
+    Lets, hide all the genes other then **searched genes** by clicking **NS**, **Up** and **Down** labels at the upper right side of the figure. Since only the selected genes are left on the graph, we can select these genes by clicking on **Select Box** icon and drawing a rectangle which covers all of these genes.  
+
+    ![*Figure 50. example scatter insulin selection*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_scatter_insulin_select.png "Figure 50. example scatter insulin selection")
+
+    
+    Here as shown below, heatmap will be simultaneously created just next to scatter plot. You might need to change plot margins as following: 
+    
+    * **Heatmap options -> heatmap - Size & Margins:** Please check the box of the **Plot Size** and adjust width and height to 580 and 500, respectively. 
+    
+    ![*Figure 51. example scatter insulin before normalization*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_scatter_insulin_before_norm.png "Figure 51. example scatter insulin before normalization")
+
+    
+    Since the data is not normalized, data of exper_rep3 looks like it belongs to control group. We strongly recommend normalization before plotting subset of genes. To normalize, please change the parameters as described below and see the updated figure at below:
+    
+    * **Data options -> Normalization Methods:** Please select **MRN** from the dropdown box.
+    
+    .. image:: ../debrowser_pics2/example_scatter_insulin_B.png
+    ![*Figure 52. example scatter insulin B*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/example_scatter_insulin_B.png "Figure 52. example scatter insulin B")
+    
+
+Activating **Interactive** feature changes the heatmap into an interactive version with two colors, allowing you to select specific genes to be compared
+within the GO term plots.  
+
+
+# Case Study
 
 Taking a look at the case study (Vernia S. et al 2014), Multiple heatmaps were
 created to display findings within the research.  The heatmaps generated
@@ -718,6 +884,8 @@ For more information about Chipster (Kallio et al., 2011), please visit this lin
 For more information about Galaxy (Giardine et al., 2005), please visit this link: [Galaxy](https://usegalaxy.org/)
 
 For more information about CummeRBund (Trapnell et al., 2012), please visit this link: [CummeRbund](http://compbio.mit.edu/cummeRbund/manual_2_0.html)
+
+![*Figure 40. Comparison table of DEBrowser, MeV, Chipster, Galaxy, and CummeRBund*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_40.png "Figure 40. Comparison table of DEBrowser, MeV, Chipster, Galaxy, and CummeRBund*")
 
 ## Autoload Data via Hyperlink
 
@@ -806,18 +974,4 @@ Future plans will include the following:
 
 16. Johnson et al. (2007) Adjusting batch effects in microarray expression data using empirical Bayes methods.  Biostatistics, 8, 118-127.
 
-![*Figure 37. Up and Down regulated genes volcano plot of HFD WT vs Chow WT.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_37.png "Figure 37. Up and Down regulated genes volcano plot of HFD WT vs Chow WT.")
 
-![*Figure 38. HFD upregulated gene list us  ed for DO enrichment*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_38.png "Figure 38. HFD upregulated gene list used for DO enrichment")
-
-![*Figure 39. HFD upregulated gene list used for KEGG enrichment*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_39.png "Figure 39. HFD upregulated gene list used for KEGG enrichment")
-
-![*Figure 40. Comparison table of DEBrowser, MeV, Chipster, Galaxy, and CummeRBund*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_40.png "Figure 40. Comparison table of DEBrowser, MeV, Chipster, Galaxy, and CummeRBund*")
-
-![*Figure 41. IQR of samples before batch correction*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_41.png "Figure 41. IQR of samples before batch correction")
-
-![*Figure 42. IQR of samples after batch correction*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_42.png "Figure 42. IQR of samples after batch correction")
-
-![*Figure 43. All-2-All scatter plots showing QC without batch correction.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_43.png "Figure 43. All-2-All scatter plots showing QC without batch correction.")
-
-![*Figure 44. All-2-All scatter plots showing QC with batch correction.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_44.png "Figure 44. All-2-All scatter plots showing QC with batch correction.")
