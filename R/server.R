@@ -55,7 +55,7 @@
 #'             density
 #' @importFrom utils read.csv read.table write.table update.packages
 #'             download.file read.delim data
-#' @importFrom DOSE enrichDO enrichMap
+#' @importFrom DOSE enrichDO
 #' @importFrom enrichplot gseaplot dotplot
 #' @importMethodsFrom DOSE summary
 #' @importMethodsFrom AnnotationDbi as.data.frame as.list colnames
@@ -287,13 +287,12 @@ deServer <- function(input, output, session) {
                 batch()$BatchEffect()$count
         })
         filt_data <- reactive({
-            if (!is.null(init_data()) && !is.null(comparison()) && !is.null(input$padjtxt))
+            if (!is.null(init_data()) && !is.null(comparison()) && !is.null(input$padj))
                 applyFilters(init_data(), cols(), conds(), input)
         })
 
         selectedQCHeat <- reactiveVal()
         observe({
-            setFilterParams(session, input)
             if ((!is.null(input$genenames) && input$interactive == TRUE) || 
                 (!is.null(input$genesetarea) && input$genesetarea != "")){
                 tmpDat <- init_data()
