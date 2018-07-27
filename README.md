@@ -71,8 +71,7 @@ startDEBrowser()
 
 Once you've made your way to the website, or you have a local instance of DEBrowser running, you will be greeted with data loading section:
 
-.. image:: ../debrowser_pics2/data_load.png
-	:align: center
+![*Figure 1. Data loading.*](http://bioinfo.umassmed.edu/pub/debrowser/debrowser_pics2/data_load.png "Figure 1. Data loading")
     
 To begin the analysis, you need to upload your *count data file* (comma or semicolon separated (CSV), and tab separated (TSV) format) to be analyzed and choose appropiate separator for the file (comma, semicolon or tab).
 
@@ -809,7 +808,7 @@ Future plans will include the following:
 
 ![*Figure 37. Up and Down regulated genes volcano plot of HFD WT vs Chow WT.*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_37.png "Figure 37. Up and Down regulated genes volcano plot of HFD WT vs Chow WT.")
 
-![*Figure 38. HFD upregulated gene list used for DO enrichment*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_38.png "Figure 38. HFD upregulated gene list used for DO enrichment")
+![*Figure 38. HFD upregulated gene list us  ed for DO enrichment*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_38.png "Figure 38. HFD upregulated gene list used for DO enrichment")
 
 ![*Figure 39. HFD upregulated gene list used for KEGG enrichment*](http://bioinfo.umassmed.edu/pub/debrowser/imgs/figure_39.png "Figure 39. HFD upregulated gene list used for KEGG enrichment")
 
