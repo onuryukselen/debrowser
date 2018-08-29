@@ -70,14 +70,12 @@ comparison table below (Figure 40).
 
 Before you start; you will have to install R and/or RStudio. 
 
-Running these simple commands will launch the DEBrowser within your local machine:
-
 ```
 # Installation instructions:
 # 1. Install DEBrowser and its dependencies by running the lines below
 # in R or RStudio.
 
-source(“https://www.bioconductor.org/biocLite.R”)
+source("https://www.bioconductor.org/biocLite.R")
 biocLite("debrowser")
 
 # 2. Load the library
