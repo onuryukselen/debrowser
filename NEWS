@@ -1,12 +1,33 @@
+***********************************
+Version 1.8.6 Release
+*********************************
+- The columns that have strings removed while loading
+- Labels can be changed in the main plots
+- Plot Information box added to give more information about
+the plots.
+
+***********************************
+Version 1.8.4 Release
+*********************************
+- Calculated padj and foldchange columns added to all detected genes result
+- Normalization issue is fixed in comparison table 
+
+***********************************
+Version 1.8.3 Release
+*********************************
+- EdgeR and Limma 
+
+***********************************
+Version 1.8.2 Release
+*********************************
+- Package installation changed to warning
+- Dependancies removed from DESCRIPTION to suppress loading messages
+- Biarxiv citation added
 
 ************************************
-Version 1.9.12 Release
+Version 1.8.1 Release
 **********************************
 - Interactive heatmap height and width fix
-
-************************************
-Version 1.9.3 Release
-**********************************
 - DEBrowser turned to a modular structure. The modules can be used in other shiny applications.
 - More interactivity added to Heatmaps and main plots. 
 - Lasso selection is added to main plots

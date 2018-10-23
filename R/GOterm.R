@@ -17,11 +17,19 @@
 #'
 getGeneList <- function(genes = NULL, org = "org.Hs.eg.db") {
     # Get the entrez gene identifiers that are mapped to a gene symbol
-    installpack(org)
+    if (!installpack(org)) return(NULL)
     allkeys <- AnnotationDbi::keys(eval(parse(text = org)), 
         keytype="SYMBOL")
     existinggenes <- unique(as.vector(unlist(lapply(toupper(genes), 
         function(x){ allkeys[x == toupper(allkeys)] }))))
+    if (length(existinggenes) < 1){
+        txt <- paste0("Please check the gene names! DEBrowser only accepts gene symbols. Ex:", 
+                      paste(head(allkeys), sep=","))
+        print(txt)
+        showNotification(txt)
+        return(NULL)
+    }
+        
     mapped_genes <- mapIds(eval(parse(text = org)), keys = existinggenes, 
         column="ENTREZID", keytype="SYMBOL",
         multiVals = "first")
@@ -49,7 +57,7 @@ getGeneList <- function(genes = NULL, org = "org.Hs.eg.db") {
 #'
 getEntrezTable <- function(genes = NULL, dat = NULL, org = "org.Hs.eg.db") {
     if (is.null(genes)) return(NULL)
-    installpack(org)
+    if (!installpack(org)) return(NULL)
     allkeys <- AnnotationDbi::keys(eval(parse(text = org)),
                                    keytype="SYMBOL")
     entrezIDs <- unlist(strsplit(genes, "/"))
@@ -82,7 +90,7 @@ getEntrezTable <- function(genes = NULL, dat = NULL, org = "org.Hs.eg.db") {
 #'
 getEntrezIds <- function(genes = NULL, org = "org.Hs.eg.db") {
     if (is.null(genes)) return(NULL)
-    installpack(org)
+    if (!installpack(org)) return(NULL)
     allkeys <- AnnotationDbi::keys(eval(parse(text = org)),
         keytype="SYMBOL")
     
@@ -117,8 +125,8 @@ getEntrezIds <- function(genes = NULL, org = "org.Hs.eg.db") {
 getEnrichGO <- function(genelist = NULL, pvalueCutoff = 0.01,
     org = "org.Hs.eg.db", ont="CC") {
     if (is.null(genelist)) return(NULL)
+    if (!installpack(org)) return(NULL)
     res <- c()
-    installpack(org)
     res$enrich_p <- clusterProfiler::enrichGO(gene = genelist, OrgDb = org,
     # res$enrich_p <- enrichGO(gene = genelist, organism = "human",
         ont = ont, pvalueCutoff = pvalueCutoff)
@@ -230,7 +238,7 @@ compareClust <- function(dat = NULL, ont = "CC", org = "org.Hs.eg.db",
     fun = "enrichGO", title = "Ontology Distribution Comparison",
     pvalueCutoff = 0.01) {
         if (is.null(dat)) return(NULL)
-        installpack(org)
+        if (!installpack(org)) return(NULL)
         res <- c()
         genecluster <- list()
         k <- max(dat$fit.cluster)
@@ -250,7 +258,7 @@ compareClust <- function(dat = NULL, ont = "CC", org = "org.Hs.eg.db",
                     organism = getOrganism(org),
                     pvalueCutoff = pvalueCutoff)
             } else if (fun == "enrichDO") {
-                 installpack("DOSE")
+                 if (!installpack("DOSE")) return(NULL)
                  xx <- compareCluster(genecluster, fun = fun,
                      pvalueCutoff = pvalueCutoff) 
             } else {

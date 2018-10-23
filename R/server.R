@@ -49,7 +49,8 @@
 #'             p.adjust runif cov mahalanobis quantile as.dendrogram
 #'             density
 #' @importFrom utils read.csv read.table write.table update.packages
-#'             download.file read.delim data
+#'             download.file read.delim data install.packages
+#'             packageDescription installed.packages
 #' @importFrom DOSE enrichDO
 #' @importFrom enrichplot gseaplot dotplot
 #' @importMethodsFrom DOSE summary
@@ -82,11 +83,11 @@
 #' @importFrom limma lmFit voom eBayes topTable
 #' @importFrom sva ComBat
 #' @importFrom RCurl getURL
+#' @importFrom pathview pathview
 #' @import org.Hs.eg.db
 #' @import org.Mm.eg.db
 #' @import V8
 #' @import shinyBS
-#' @import pathview
 #' @import colourpicker
 #' @import RColorBrewer
 #' @import heatmaply
@@ -157,13 +158,15 @@ deServer <- function(input, output, session) {
                 choicecounter$nc <- sel()$cc()
             })
             observeEvent (input$startDE, {
-                togglePanels(0, c(0), session)
-                dc(prepDataContainer(batch()$BatchEffect()$count, sel()$cc(), input))
-                updateTabItems(session, "DataPrep", "DEAnalysis")
-               
-                buttonValues$startDE <- TRUE
-                buttonValues$goQCplots <- FALSE
-                hideObj(c("load-uploadFile","load-demo", "load-demo2", "goQCplots", "goQCplotsFromFilter"))
+                if(!is.null(batch()$BatchEffect()$count)){
+                    togglePanels(0, c(0), session)
+                    dc(prepDataContainer(batch()$BatchEffect()$count, sel()$cc(), input))
+                    updateTabItems(session, "DataPrep", "DEAnalysis")
+                    buttonValues$startDE <- TRUE
+                    buttonValues$goQCplots <- FALSE
+                    hideObj(c("load-uploadFile","load-demo", 
+                        "load-demo2", "goQCplots", "goQCplotsFromFilter"))
+                }
             })
 
             observeEvent (input$goMain, {
@@ -321,7 +324,7 @@ deServer <- function(input, output, session) {
         selectedMain <- reactiveVal()
         observe({
             if (!is.null(filt_data())) {
-            condmsg(getCondMsg(dc(), input$compselect,
+            condmsg(getCondMsg(dc(), input,
                 cols(), conds()))
             selectedMain(callModule(debrowsermainplot, "main", filt_data()))
             }
@@ -365,7 +368,7 @@ deServer <- function(input, output, session) {
         })
         
         normdat <-  reactive({
-            if (!is.null(init_data())){
+            if (!is.null(init_data()) && !is.null(datasetInput())){
                 dat <- init_data()
                 if(!is.null(cols()))
                     dat <- init_data()[,cols()]
@@ -430,7 +433,7 @@ deServer <- function(input, output, session) {
         })
         output$KEGGPlot <- renderImage({
             withProgress(message = 'KEGG Started', detail = "interactive", value = 0, {
-            validate(need(!is.null(input$gotable_rows_selected),
+            shiny::validate(need(!is.null(input$gotable_rows_selected),
                           "Please select a category in the GO/KEGG table to be able
                           to see the pathway diagram"))
             
@@ -443,7 +446,7 @@ deServer <- function(input, output, session) {
             pid <- inputGOstart()$table$ID[i]
 
             tryCatch({
-                pathview(gene.data = foldChangeData,
+                pathview::pathview(gene.data = foldChangeData,
                     pathway.id = pid,
                     species = substr(pid,0,3),
                     gene.idtype="entrez",
@@ -470,7 +473,7 @@ deServer <- function(input, output, session) {
             dat
         })
         output$GOGeneTable <- DT::renderDataTable({
-            validate(need(!is.null(input$gotable_rows_selected),
+            shiny::validate(need(!is.null(input$gotable_rows_selected),
                           "Please select a category in the GO/KEGG table to be able
                           to see the gene list"))
             dat <- getGOCatGenes()
@@ -562,15 +565,11 @@ deServer <- function(input, output, session) {
         })
         mergedComp <- reactive({
             dat <- applyFiltersToMergedComparison(
-                isolate(mergedCompInit()), choicecounter$nc, input)
-            ret <- dat[dat$Legend == "Sig", ]
-            #ret[ret$Legend == "Sig", ] <- NULL
-            ret
+                getMergedComparison(isolate(dc()), choicecounter$nc, input), 
+                choicecounter$nc, input)
+            dat[dat$Legend == "Sig", ]
         })
         
-        mergedCompInit <- reactive({
-            getMergedComparison(isolate(dc()), choicecounter$nc, input)
-        })
         datasetInput <- function(addIdFlag = FALSE){
             tmpDat <- NULL
             sdata <- NULL

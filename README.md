@@ -47,8 +47,9 @@ Before you start; you will have to install R and/or RStudio.
 # 1. Install DEBrowser and its dependencies by running the lines below
 # in R or RStudio.
 
-source("https://www.bioconductor.org/biocLite.R")
-biocLite("debrowser")
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("debrowser")
 
 # 2. Load the library
 
